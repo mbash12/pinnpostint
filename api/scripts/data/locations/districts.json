@@ -1,0 +1,4027 @@
+[
+  {
+    "name": "Adilabad",
+    "stateId": "TE",
+    "stateName": "TELANGANA",
+    "code": "ADI",
+    "isActive": true
+  },
+  {
+    "name": "Agra",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "AGR",
+    "isActive": true
+  },
+  {
+    "name": "Ahmed Nagar",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "AHM",
+    "isActive": true
+  },
+  {
+    "name": "Ahmedabad",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "AHM",
+    "isActive": true
+  },
+  {
+    "name": "Aizawl",
+    "stateId": "MI",
+    "stateName": "MIZORAM",
+    "code": "AIZ",
+    "isActive": true
+  },
+  {
+    "name": "Ajmer",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "AJM",
+    "isActive": true
+  },
+  {
+    "name": "Akola",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "AKO",
+    "isActive": true
+  },
+  {
+    "name": "Alappuzha",
+    "stateId": "KE",
+    "stateName": "KERALA",
+    "code": "ALA",
+    "isActive": true
+  },
+  {
+    "name": "Aligarh",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "ALI",
+    "isActive": true
+  },
+  {
+    "name": "Alirajpur",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "ALI",
+    "isActive": true
+  },
+  {
+    "name": "Allahabad",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "ALL",
+    "isActive": true
+  },
+  {
+    "name": "Almora",
+    "stateId": "UT",
+    "stateName": "UTTARAKHAND",
+    "code": "ALM",
+    "isActive": true
+  },
+  {
+    "name": "Alwar",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "ALW",
+    "isActive": true
+  },
+  {
+    "name": "Ambala",
+    "stateId": "HA",
+    "stateName": "HARYANA",
+    "code": "AMB",
+    "isActive": true
+  },
+  {
+    "name": "Ambedkar Nagar",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "AMB",
+    "isActive": true
+  },
+  {
+    "name": "Amravati",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "AMR",
+    "isActive": true
+  },
+  {
+    "name": "Amreli",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "AMR",
+    "isActive": true
+  },
+  {
+    "name": "Amritsar",
+    "stateId": "PU",
+    "stateName": "PUNJAB",
+    "code": "AMR",
+    "isActive": true
+  },
+  {
+    "name": "Anand",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "ANA",
+    "isActive": true
+  },
+  {
+    "name": "Ananthapur",
+    "stateId": "AN",
+    "stateName": "ANDHRA PRADESH",
+    "code": "ANA",
+    "isActive": true
+  },
+  {
+    "name": "Ananthnag",
+    "stateId": "JA",
+    "stateName": "JAMMU & KASHMIR",
+    "code": "ANA",
+    "isActive": true
+  },
+  {
+    "name": "Angul",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "ANG",
+    "isActive": true
+  },
+  {
+    "name": "Anuppur",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "ANU",
+    "isActive": true
+  },
+  {
+    "name": "Araria",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "ARA",
+    "isActive": true
+  },
+  {
+    "name": "Ariyalur",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "ARI",
+    "isActive": true
+  },
+  {
+    "name": "Arwal",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "ARW",
+    "isActive": true
+  },
+  {
+    "name": "Ashok Nagar",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "ASH",
+    "isActive": true
+  },
+  {
+    "name": "Auraiya",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "AUR",
+    "isActive": true
+  },
+  {
+    "name": "Aurangabad",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "AUR",
+    "isActive": true
+  },
+  {
+    "name": "Aurangabad(BH)",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "AUR",
+    "isActive": true
+  },
+  {
+    "name": "Azamgarh",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "AZA",
+    "isActive": true
+  },
+  {
+    "name": "Bagalkot",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "BAG",
+    "isActive": true
+  },
+  {
+    "name": "Bagpat",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "BAG",
+    "isActive": true
+  },
+  {
+    "name": "Bahraich",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "BAH",
+    "isActive": true
+  },
+  {
+    "name": "Balaghat",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "BAL",
+    "isActive": true
+  },
+  {
+    "name": "Baleswar",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "BAL",
+    "isActive": true
+  },
+  {
+    "name": "Ballia",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "BAL",
+    "isActive": true
+  },
+  {
+    "name": "Banaskantha",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "BAN",
+    "isActive": true
+  },
+  {
+    "name": "Banda",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "BAN",
+    "isActive": true
+  },
+  {
+    "name": "Bandipur",
+    "stateId": "JA",
+    "stateName": "JAMMU & KASHMIR",
+    "code": "BAN",
+    "isActive": true
+  },
+  {
+    "name": "Bangalore",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "BAN",
+    "isActive": true
+  },
+  {
+    "name": "Banka",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "BAN",
+    "isActive": true
+  },
+  {
+    "name": "Bankura",
+    "stateId": "WE",
+    "stateName": "WEST BENGAL",
+    "code": "BAN",
+    "isActive": true
+  },
+  {
+    "name": "Banswara",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "BAN",
+    "isActive": true
+  },
+  {
+    "name": "Baramulla",
+    "stateId": "JA",
+    "stateName": "JAMMU & KASHMIR",
+    "code": "BAR",
+    "isActive": true
+  },
+  {
+    "name": "Baran",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "BAR",
+    "isActive": true
+  },
+  {
+    "name": "Bardhaman",
+    "stateId": "WE",
+    "stateName": "WEST BENGAL",
+    "code": "BAR",
+    "isActive": true
+  },
+  {
+    "name": "Bareilly",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "BAR",
+    "isActive": true
+  },
+  {
+    "name": "Bargarh",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "BAR",
+    "isActive": true
+  },
+  {
+    "name": "Barnala",
+    "stateId": "PU",
+    "stateName": "PUNJAB",
+    "code": "BAR",
+    "isActive": true
+  },
+  {
+    "name": "Barpeta",
+    "stateId": "AS",
+    "stateName": "ASSAM",
+    "code": "BAR",
+    "isActive": true
+  },
+  {
+    "name": "Barwani",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "BAR",
+    "isActive": true
+  },
+  {
+    "name": "Bastar",
+    "stateId": "CH",
+    "stateName": "CHATTISGARH",
+    "code": "BAS",
+    "isActive": true
+  },
+  {
+    "name": "Basti",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "BAS",
+    "isActive": true
+  },
+  {
+    "name": "Bathinda",
+    "stateId": "PU",
+    "stateName": "PUNJAB",
+    "code": "BAT",
+    "isActive": true
+  },
+  {
+    "name": "Beed",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "BEE",
+    "isActive": true
+  },
+  {
+    "name": "Begusarai",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "BEG",
+    "isActive": true
+  },
+  {
+    "name": "Belgaum",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "BEL",
+    "isActive": true
+  },
+  {
+    "name": "Betul",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "BET",
+    "isActive": true
+  },
+  {
+    "name": "Bhadrak",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "BHA",
+    "isActive": true
+  },
+  {
+    "name": "Bhagalpur",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "BHA",
+    "isActive": true
+  },
+  {
+    "name": "Bhandara",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "BHA",
+    "isActive": true
+  },
+  {
+    "name": "Bharatpur",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "BHA",
+    "isActive": true
+  },
+  {
+    "name": "Bhavnagar",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "BHA",
+    "isActive": true
+  },
+  {
+    "name": "Bhilwara",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "BHI",
+    "isActive": true
+  },
+  {
+    "name": "Bhind",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "BHI",
+    "isActive": true
+  },
+  {
+    "name": "Bhiwani",
+    "stateId": "HA",
+    "stateName": "HARYANA",
+    "code": "BHI",
+    "isActive": true
+  },
+  {
+    "name": "Bhojpur",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "BHO",
+    "isActive": true
+  },
+  {
+    "name": "Bhopal",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "BHO",
+    "isActive": true
+  },
+  {
+    "name": "Bidar",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "BID",
+    "isActive": true
+  },
+  {
+    "name": "Bijapur(CGH)",
+    "stateId": "CH",
+    "stateName": "CHATTISGARH",
+    "code": "BIJ",
+    "isActive": true
+  },
+  {
+    "name": "Bijapur(KAR)",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "BIJ",
+    "isActive": true
+  },
+  {
+    "name": "Bijnor",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "BIJ",
+    "isActive": true
+  },
+  {
+    "name": "Bikaner",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "BIK",
+    "isActive": true
+  },
+  {
+    "name": "Bilaspur (HP)",
+    "stateId": "HI",
+    "stateName": "HIMACHAL PRADESH",
+    "code": "BIL",
+    "isActive": true
+  },
+  {
+    "name": "Bilaspur(CGH)",
+    "stateId": "CH",
+    "stateName": "CHATTISGARH",
+    "code": "BIL",
+    "isActive": true
+  },
+  {
+    "name": "Birbhum",
+    "stateId": "WE",
+    "stateName": "WEST BENGAL",
+    "code": "BIR",
+    "isActive": true
+  },
+  {
+    "name": "Bishnupur",
+    "stateId": "MA",
+    "stateName": "MANIPUR",
+    "code": "BIS",
+    "isActive": true
+  },
+  {
+    "name": "Bokaro",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "BOK",
+    "isActive": true
+  },
+  {
+    "name": "Bongaigaon",
+    "stateId": "AS",
+    "stateName": "ASSAM",
+    "code": "BON",
+    "isActive": true
+  },
+  {
+    "name": "Boudh",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "BOU",
+    "isActive": true
+  },
+  {
+    "name": "Budaun",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "BUD",
+    "isActive": true
+  },
+  {
+    "name": "Budgam",
+    "stateId": "JA",
+    "stateName": "JAMMU & KASHMIR",
+    "code": "BUD",
+    "isActive": true
+  },
+  {
+    "name": "Bulandshahr",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "BUL",
+    "isActive": true
+  },
+  {
+    "name": "Buldhana",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "BUL",
+    "isActive": true
+  },
+  {
+    "name": "Bundi",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "BUN",
+    "isActive": true
+  },
+  {
+    "name": "Burhanpur",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "BUR",
+    "isActive": true
+  },
+  {
+    "name": "Buxar",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "BUX",
+    "isActive": true
+  },
+  {
+    "name": "Cachar",
+    "stateId": "AS",
+    "stateName": "ASSAM",
+    "code": "CAC",
+    "isActive": true
+  },
+  {
+    "name": "Central Delhi",
+    "stateId": "DE",
+    "stateName": "DELHI",
+    "code": "CEN",
+    "isActive": true
+  },
+  {
+    "name": "Chamba",
+    "stateId": "HI",
+    "stateName": "HIMACHAL PRADESH",
+    "code": "CHA",
+    "isActive": true
+  },
+  {
+    "name": "Champhai",
+    "stateId": "MI",
+    "stateName": "MIZORAM",
+    "code": "CHA",
+    "isActive": true
+  },
+  {
+    "name": "Chamrajnagar",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "CHA",
+    "isActive": true
+  },
+  {
+    "name": "Chandauli",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "CHA",
+    "isActive": true
+  },
+  {
+    "name": "Chandigarh",
+    "stateId": "CH",
+    "stateName": "CHANDIGARH",
+    "code": "CHA",
+    "isActive": true
+  },
+  {
+    "name": "Chandrapur",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "CHA",
+    "isActive": true
+  },
+  {
+    "name": "Changlang",
+    "stateId": "AR",
+    "stateName": "ARUNACHAL PRADESH",
+    "code": "CHA",
+    "isActive": true
+  },
+  {
+    "name": "Chatra",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "CHA",
+    "isActive": true
+  },
+  {
+    "name": "Chennai",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "CHE",
+    "isActive": true
+  },
+  {
+    "name": "Chhatarpur",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "CHH",
+    "isActive": true
+  },
+  {
+    "name": "Chickmagalur",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "CHI",
+    "isActive": true
+  },
+  {
+    "name": "Chitrakoot",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "CHI",
+    "isActive": true
+  },
+  {
+    "name": "Chittoor",
+    "stateId": "AN",
+    "stateName": "ANDHRA PRADESH",
+    "code": "CHI",
+    "isActive": true
+  },
+  {
+    "name": "Chittorgarh",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "CHI",
+    "isActive": true
+  },
+  {
+    "name": "Churachandpur",
+    "stateId": "MA",
+    "stateName": "MANIPUR",
+    "code": "CHU",
+    "isActive": true
+  },
+  {
+    "name": "Churu",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "CHU",
+    "isActive": true
+  },
+  {
+    "name": "Coimbatore",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "COI",
+    "isActive": true
+  },
+  {
+    "name": "Cooch Behar",
+    "stateId": "WE",
+    "stateName": "WEST BENGAL",
+    "code": "COO",
+    "isActive": true
+  },
+  {
+    "name": "Cuddalore",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "CUD",
+    "isActive": true
+  },
+  {
+    "name": "Cuddapah",
+    "stateId": "AN",
+    "stateName": "ANDHRA PRADESH",
+    "code": "CUD",
+    "isActive": true
+  },
+  {
+    "name": "Cuttack",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "CUT",
+    "isActive": true
+  },
+  {
+    "name": "Dadra & Nagar Haveli",
+    "stateId": "DA",
+    "stateName": "DADRA & NAGAR HAVELI",
+    "code": "DAD",
+    "isActive": true
+  },
+  {
+    "name": "Dahod",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "DAH",
+    "isActive": true
+  },
+  {
+    "name": "Dakshina Kannada",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "DAK",
+    "isActive": true
+  },
+  {
+    "name": "Daman",
+    "stateId": "DA",
+    "stateName": "DAMAN & DIU",
+    "code": "DAM",
+    "isActive": true
+  },
+  {
+    "name": "Damoh",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "DAM",
+    "isActive": true
+  },
+  {
+    "name": "Dantewada",
+    "stateId": "CH",
+    "stateName": "CHATTISGARH",
+    "code": "DAN",
+    "isActive": true
+  },
+  {
+    "name": "Darbhanga",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "DAR",
+    "isActive": true
+  },
+  {
+    "name": "Darjiling",
+    "stateId": "WE",
+    "stateName": "WEST BENGAL",
+    "code": "DAR",
+    "isActive": true
+  },
+  {
+    "name": "Darrang",
+    "stateId": "AS",
+    "stateName": "ASSAM",
+    "code": "DAR",
+    "isActive": true
+  },
+  {
+    "name": "Datia",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "DAT",
+    "isActive": true
+  },
+  {
+    "name": "Dausa",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "DAU",
+    "isActive": true
+  },
+  {
+    "name": "Davangere",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "DAV",
+    "isActive": true
+  },
+  {
+    "name": "Debagarh",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "DEB",
+    "isActive": true
+  },
+  {
+    "name": "Dehradun",
+    "stateId": "UT",
+    "stateName": "UTTARAKHAND",
+    "code": "DEH",
+    "isActive": true
+  },
+  {
+    "name": "Deoghar",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "DEO",
+    "isActive": true
+  },
+  {
+    "name": "Deoria",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "DEO",
+    "isActive": true
+  },
+  {
+    "name": "Dewas",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "DEW",
+    "isActive": true
+  },
+  {
+    "name": "Dhalai",
+    "stateId": "TR",
+    "stateName": "TRIPURA",
+    "code": "DHA",
+    "isActive": true
+  },
+  {
+    "name": "Dhamtari",
+    "stateId": "CH",
+    "stateName": "CHATTISGARH",
+    "code": "DHA",
+    "isActive": true
+  },
+  {
+    "name": "Dhanbad",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "DHA",
+    "isActive": true
+  },
+  {
+    "name": "Dhar",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "DHA",
+    "isActive": true
+  },
+  {
+    "name": "Dharmapuri",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "DHA",
+    "isActive": true
+  },
+  {
+    "name": "Dharwad",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "DHA",
+    "isActive": true
+  },
+  {
+    "name": "Dhemaji",
+    "stateId": "AS",
+    "stateName": "ASSAM",
+    "code": "DHE",
+    "isActive": true
+  },
+  {
+    "name": "Dhenkanal",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "DHE",
+    "isActive": true
+  },
+  {
+    "name": "Dholpur",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "DHO",
+    "isActive": true
+  },
+  {
+    "name": "Dhubri",
+    "stateId": "AS",
+    "stateName": "ASSAM",
+    "code": "DHU",
+    "isActive": true
+  },
+  {
+    "name": "Dhule",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "DHU",
+    "isActive": true
+  },
+  {
+    "name": "Dibang Valley",
+    "stateId": "AR",
+    "stateName": "ARUNACHAL PRADESH",
+    "code": "DIB",
+    "isActive": true
+  },
+  {
+    "name": "Dibrugarh",
+    "stateId": "AS",
+    "stateName": "ASSAM",
+    "code": "DIB",
+    "isActive": true
+  },
+  {
+    "name": "Dimapur",
+    "stateId": "NA",
+    "stateName": "NAGALAND",
+    "code": "DIM",
+    "isActive": true
+  },
+  {
+    "name": "Dindigul",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "DIN",
+    "isActive": true
+  },
+  {
+    "name": "Dindori",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "DIN",
+    "isActive": true
+  },
+  {
+    "name": "Diu",
+    "stateId": "DA",
+    "stateName": "DAMAN & DIU",
+    "code": "DIU",
+    "isActive": true
+  },
+  {
+    "name": "Doda",
+    "stateId": "JA",
+    "stateName": "JAMMU & KASHMIR",
+    "code": "DOD",
+    "isActive": true
+  },
+  {
+    "name": "Dumka",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "DUM",
+    "isActive": true
+  },
+  {
+    "name": "Dungarpur",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "DUN",
+    "isActive": true
+  },
+  {
+    "name": "Durg",
+    "stateId": "CH",
+    "stateName": "CHATTISGARH",
+    "code": "DUR",
+    "isActive": true
+  },
+  {
+    "name": "East Champaran",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "EAS",
+    "isActive": true
+  },
+  {
+    "name": "East Delhi",
+    "stateId": "DE",
+    "stateName": "DELHI",
+    "code": "EAS",
+    "isActive": true
+  },
+  {
+    "name": "East Garo Hills",
+    "stateId": "ME",
+    "stateName": "MEGHALAYA",
+    "code": "EAS",
+    "isActive": true
+  },
+  {
+    "name": "East Godavari",
+    "stateId": "AN",
+    "stateName": "ANDHRA PRADESH",
+    "code": "EAS",
+    "isActive": true
+  },
+  {
+    "name": "East Midnapore",
+    "stateId": "WE",
+    "stateName": "WEST BENGAL",
+    "code": "EAS",
+    "isActive": true
+  },
+  {
+    "name": "East Nimar",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "EAS",
+    "isActive": true
+  },
+  {
+    "name": "East Siang",
+    "stateId": "AR",
+    "stateName": "ARUNACHAL PRADESH",
+    "code": "EAS",
+    "isActive": true
+  },
+  {
+    "name": "East Sikkim",
+    "stateId": "SI",
+    "stateName": "SIKKIM",
+    "code": "EAS",
+    "isActive": true
+  },
+  {
+    "name": "East Singhbhum",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "EAS",
+    "isActive": true
+  },
+  {
+    "name": "Ernakulam",
+    "stateId": "KE",
+    "stateName": "KERALA",
+    "code": "ERN",
+    "isActive": true
+  },
+  {
+    "name": "Erode",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "ERO",
+    "isActive": true
+  },
+  {
+    "name": "Etah",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "ETA",
+    "isActive": true
+  },
+  {
+    "name": "Faizabad",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "FAI",
+    "isActive": true
+  },
+  {
+    "name": "Faridabad",
+    "stateId": "HA",
+    "stateName": "HARYANA",
+    "code": "FAR",
+    "isActive": true
+  },
+  {
+    "name": "Faridkot",
+    "stateId": "PU",
+    "stateName": "PUNJAB",
+    "code": "FAR",
+    "isActive": true
+  },
+  {
+    "name": "Farrukhabad",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "FAR",
+    "isActive": true
+  },
+  {
+    "name": "Fatehabad",
+    "stateId": "HA",
+    "stateName": "HARYANA",
+    "code": "FAT",
+    "isActive": true
+  },
+  {
+    "name": "Fatehgarh Sahib",
+    "stateId": "PU",
+    "stateName": "PUNJAB",
+    "code": "FAT",
+    "isActive": true
+  },
+  {
+    "name": "Fatehpur",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "FAT",
+    "isActive": true
+  },
+  {
+    "name": "Fazilka",
+    "stateId": "PU",
+    "stateName": "PUNJAB",
+    "code": "FAZ",
+    "isActive": true
+  },
+  {
+    "name": "Firozabad",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "FIR",
+    "isActive": true
+  },
+  {
+    "name": "Firozpur",
+    "stateId": "PU",
+    "stateName": "PUNJAB",
+    "code": "FIR",
+    "isActive": true
+  },
+  {
+    "name": "Gadag",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "GAD",
+    "isActive": true
+  },
+  {
+    "name": "Gadchiroli",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "GAD",
+    "isActive": true
+  },
+  {
+    "name": "Gajapati",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "GAJ",
+    "isActive": true
+  },
+  {
+    "name": "Gandhi Nagar",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "GAN",
+    "isActive": true
+  },
+  {
+    "name": "Ganganagar",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "GAN",
+    "isActive": true
+  },
+  {
+    "name": "Ganjam",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "GAN",
+    "isActive": true
+  },
+  {
+    "name": "Garhwa",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "GAR",
+    "isActive": true
+  },
+  {
+    "name": "Gariaband",
+    "stateId": "CH",
+    "stateName": "CHATTISGARH",
+    "code": "GAR",
+    "isActive": true
+  },
+  {
+    "name": "Gautam Buddha Nagar",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "GAU",
+    "isActive": true
+  },
+  {
+    "name": "Gaya",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "GAY",
+    "isActive": true
+  },
+  {
+    "name": "Ghazipur",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "GHA",
+    "isActive": true
+  },
+  {
+    "name": "Giridh",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "GIR",
+    "isActive": true
+  },
+  {
+    "name": "Goalpara",
+    "stateId": "AS",
+    "stateName": "ASSAM",
+    "code": "GOA",
+    "isActive": true
+  },
+  {
+    "name": "Godda",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "GOD",
+    "isActive": true
+  },
+  {
+    "name": "Golaghat",
+    "stateId": "AS",
+    "stateName": "ASSAM",
+    "code": "GOL",
+    "isActive": true
+  },
+  {
+    "name": "Gonda",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "GON",
+    "isActive": true
+  },
+  {
+    "name": "Gondia",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "GON",
+    "isActive": true
+  },
+  {
+    "name": "Gopalganj",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "GOP",
+    "isActive": true
+  },
+  {
+    "name": "Gorakhpur",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "GOR",
+    "isActive": true
+  },
+  {
+    "name": "Gulbarga",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "GUL",
+    "isActive": true
+  },
+  {
+    "name": "Gumla",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "GUM",
+    "isActive": true
+  },
+  {
+    "name": "Guna",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "GUN",
+    "isActive": true
+  },
+  {
+    "name": "Guntur",
+    "stateId": "AN",
+    "stateName": "ANDHRA PRADESH",
+    "code": "GUN",
+    "isActive": true
+  },
+  {
+    "name": "Gurdaspur",
+    "stateId": "PU",
+    "stateName": "PUNJAB",
+    "code": "GUR",
+    "isActive": true
+  },
+  {
+    "name": "Gurgaon",
+    "stateId": "HA",
+    "stateName": "HARYANA",
+    "code": "GUR",
+    "isActive": true
+  },
+  {
+    "name": "Gwalior",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "GWA",
+    "isActive": true
+  },
+  {
+    "name": "Hailakandi",
+    "stateId": "AS",
+    "stateName": "ASSAM",
+    "code": "HAI",
+    "isActive": true
+  },
+  {
+    "name": "Hamirpur",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "HAM",
+    "isActive": true
+  },
+  {
+    "name": "Hamirpur(HP)",
+    "stateId": "HI",
+    "stateName": "HIMACHAL PRADESH",
+    "code": "HAM",
+    "isActive": true
+  },
+  {
+    "name": "Hanumangarh",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "HAN",
+    "isActive": true
+  },
+  {
+    "name": "Harda",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "HAR",
+    "isActive": true
+  },
+  {
+    "name": "Haridwar",
+    "stateId": "UT",
+    "stateName": "UTTARAKHAND",
+    "code": "HAR",
+    "isActive": true
+  },
+  {
+    "name": "Hassan",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "HAS",
+    "isActive": true
+  },
+  {
+    "name": "Hathras",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "HAT",
+    "isActive": true
+  },
+  {
+    "name": "Haveri",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "HAV",
+    "isActive": true
+  },
+  {
+    "name": "Hazaribag",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "HAZ",
+    "isActive": true
+  },
+  {
+    "name": "Hingoli",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "HIN",
+    "isActive": true
+  },
+  {
+    "name": "Hisar",
+    "stateId": "HA",
+    "stateName": "HARYANA",
+    "code": "HIS",
+    "isActive": true
+  },
+  {
+    "name": "Hooghly",
+    "stateId": "WE",
+    "stateName": "WEST BENGAL",
+    "code": "HOO",
+    "isActive": true
+  },
+  {
+    "name": "Hoshangabad",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "HOS",
+    "isActive": true
+  },
+  {
+    "name": "Hoshiarpur",
+    "stateId": "PU",
+    "stateName": "PUNJAB",
+    "code": "HOS",
+    "isActive": true
+  },
+  {
+    "name": "Howrah",
+    "stateId": "WE",
+    "stateName": "WEST BENGAL",
+    "code": "HOW",
+    "isActive": true
+  },
+  {
+    "name": "Hyderabad",
+    "stateId": "TE",
+    "stateName": "TELANGANA",
+    "code": "HYD",
+    "isActive": true
+  },
+  {
+    "name": "Idukki",
+    "stateId": "KE",
+    "stateName": "KERALA",
+    "code": "IDU",
+    "isActive": true
+  },
+  {
+    "name": "Imphal West",
+    "stateId": "MA",
+    "stateName": "MANIPUR",
+    "code": "IMP",
+    "isActive": true
+  },
+  {
+    "name": "Indore",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "IND",
+    "isActive": true
+  },
+  {
+    "name": "Jabalpur",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "JAB",
+    "isActive": true
+  },
+  {
+    "name": "Jagatsinghapur",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "JAG",
+    "isActive": true
+  },
+  {
+    "name": "Jaintia Hills",
+    "stateId": "ME",
+    "stateName": "MEGHALAYA",
+    "code": "JAI",
+    "isActive": true
+  },
+  {
+    "name": "Jaipur",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "JAI",
+    "isActive": true
+  },
+  {
+    "name": "Jajapur",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "JAJ",
+    "isActive": true
+  },
+  {
+    "name": "Jalandhar",
+    "stateId": "PU",
+    "stateName": "PUNJAB",
+    "code": "JAL",
+    "isActive": true
+  },
+  {
+    "name": "Jalaun",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "JAL",
+    "isActive": true
+  },
+  {
+    "name": "Jalna",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "JAL",
+    "isActive": true
+  },
+  {
+    "name": "Jalor",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "JAL",
+    "isActive": true
+  },
+  {
+    "name": "Jalpaiguri",
+    "stateId": "WE",
+    "stateName": "WEST BENGAL",
+    "code": "JAL",
+    "isActive": true
+  },
+  {
+    "name": "Jammu",
+    "stateId": "JA",
+    "stateName": "JAMMU & KASHMIR",
+    "code": "JAM",
+    "isActive": true
+  },
+  {
+    "name": "Jamnagar",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "JAM",
+    "isActive": true
+  },
+  {
+    "name": "Jamtara",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "JAM",
+    "isActive": true
+  },
+  {
+    "name": "Jamui",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "JAM",
+    "isActive": true
+  },
+  {
+    "name": "Janjgir-champa",
+    "stateId": "CH",
+    "stateName": "CHATTISGARH",
+    "code": "JAN",
+    "isActive": true
+  },
+  {
+    "name": "Jashpur",
+    "stateId": "CH",
+    "stateName": "CHATTISGARH",
+    "code": "JAS",
+    "isActive": true
+  },
+  {
+    "name": "Jaunpur",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "JAU",
+    "isActive": true
+  },
+  {
+    "name": "Jehanabad",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "JEH",
+    "isActive": true
+  },
+  {
+    "name": "Jhabua",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "JHA",
+    "isActive": true
+  },
+  {
+    "name": "Jhajjar",
+    "stateId": "HA",
+    "stateName": "HARYANA",
+    "code": "JHA",
+    "isActive": true
+  },
+  {
+    "name": "Jhalawar",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "JHA",
+    "isActive": true
+  },
+  {
+    "name": "Jhansi",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "JHA",
+    "isActive": true
+  },
+  {
+    "name": "Jharsuguda",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "JHA",
+    "isActive": true
+  },
+  {
+    "name": "Jhujhunu",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "JHU",
+    "isActive": true
+  },
+  {
+    "name": "Jind",
+    "stateId": "HA",
+    "stateName": "HARYANA",
+    "code": "JIN",
+    "isActive": true
+  },
+  {
+    "name": "Jodhpur",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "JOD",
+    "isActive": true
+  },
+  {
+    "name": "Jorhat",
+    "stateId": "AS",
+    "stateName": "ASSAM",
+    "code": "JOR",
+    "isActive": true
+  },
+  {
+    "name": "Junagadh",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "JUN",
+    "isActive": true
+  },
+  {
+    "name": "Jyotiba Phule Nagar",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "JYO",
+    "isActive": true
+  },
+  {
+    "name": "K.V.Rangareddy",
+    "stateId": "TE",
+    "stateName": "TELANGANA",
+    "code": "K.V",
+    "isActive": true
+  },
+  {
+    "name": "Kachchh",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "KAC",
+    "isActive": true
+  },
+  {
+    "name": "Kaimur (Bhabua)",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "KAI",
+    "isActive": true
+  },
+  {
+    "name": "Kaithal",
+    "stateId": "HA",
+    "stateName": "HARYANA",
+    "code": "KAI",
+    "isActive": true
+  },
+  {
+    "name": "Kalahandi",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "KAL",
+    "isActive": true
+  },
+  {
+    "name": "Kamrup",
+    "stateId": "AS",
+    "stateName": "ASSAM",
+    "code": "KAM",
+    "isActive": true
+  },
+  {
+    "name": "Kanchipuram",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "KAN",
+    "isActive": true
+  },
+  {
+    "name": "Kandhamal",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "KAN",
+    "isActive": true
+  },
+  {
+    "name": "Kangra",
+    "stateId": "HI",
+    "stateName": "HIMACHAL PRADESH",
+    "code": "KAN",
+    "isActive": true
+  },
+  {
+    "name": "Kanker",
+    "stateId": "CH",
+    "stateName": "CHATTISGARH",
+    "code": "KAN",
+    "isActive": true
+  },
+  {
+    "name": "Kannauj",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "KAN",
+    "isActive": true
+  },
+  {
+    "name": "Kannur",
+    "stateId": "KE",
+    "stateName": "KERALA",
+    "code": "KAN",
+    "isActive": true
+  },
+  {
+    "name": "Kapurthala",
+    "stateId": "PU",
+    "stateName": "PUNJAB",
+    "code": "KAP",
+    "isActive": true
+  },
+  {
+    "name": "Karaikal",
+    "stateId": "PO",
+    "stateName": "PONDICHERRY",
+    "code": "KAR",
+    "isActive": true
+  },
+  {
+    "name": "Karauli",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "KAR",
+    "isActive": true
+  },
+  {
+    "name": "Karbi Anglong",
+    "stateId": "AS",
+    "stateName": "ASSAM",
+    "code": "KAR",
+    "isActive": true
+  },
+  {
+    "name": "Kargil",
+    "stateId": "JA",
+    "stateName": "JAMMU & KASHMIR",
+    "code": "KAR",
+    "isActive": true
+  },
+  {
+    "name": "Karim Nagar",
+    "stateId": "TE",
+    "stateName": "TELANGANA",
+    "code": "KAR",
+    "isActive": true
+  },
+  {
+    "name": "Karnal",
+    "stateId": "HA",
+    "stateName": "HARYANA",
+    "code": "KAR",
+    "isActive": true
+  },
+  {
+    "name": "Karur",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "KAR",
+    "isActive": true
+  },
+  {
+    "name": "Kasargod",
+    "stateId": "KE",
+    "stateName": "KERALA",
+    "code": "KAS",
+    "isActive": true
+  },
+  {
+    "name": "Kathua",
+    "stateId": "JA",
+    "stateName": "JAMMU & KASHMIR",
+    "code": "KAT",
+    "isActive": true
+  },
+  {
+    "name": "Katihar",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "KAT",
+    "isActive": true
+  },
+  {
+    "name": "Katni",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "KAT",
+    "isActive": true
+  },
+  {
+    "name": "Kaushambi",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "KAU",
+    "isActive": true
+  },
+  {
+    "name": "Kawardha",
+    "stateId": "CH",
+    "stateName": "CHATTISGARH",
+    "code": "KAW",
+    "isActive": true
+  },
+  {
+    "name": "Kendujhar",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "KEN",
+    "isActive": true
+  },
+  {
+    "name": "Khagaria",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "KHA",
+    "isActive": true
+  },
+  {
+    "name": "Khammam",
+    "stateId": "TE",
+    "stateName": "TELANGANA",
+    "code": "KHA",
+    "isActive": true
+  },
+  {
+    "name": "Khandwa",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "KHA",
+    "isActive": true
+  },
+  {
+    "name": "Kheda",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "KHE",
+    "isActive": true
+  },
+  {
+    "name": "Kheri",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "KHE",
+    "isActive": true
+  },
+  {
+    "name": "Khorda",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "KHO",
+    "isActive": true
+  },
+  {
+    "name": "Khunti",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "KHU",
+    "isActive": true
+  },
+  {
+    "name": "Kinnaur",
+    "stateId": "HI",
+    "stateName": "HIMACHAL PRADESH",
+    "code": "KIN",
+    "isActive": true
+  },
+  {
+    "name": "Kiphire",
+    "stateId": "NA",
+    "stateName": "NAGALAND",
+    "code": "KIP",
+    "isActive": true
+  },
+  {
+    "name": "Kishanganj",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "KIS",
+    "isActive": true
+  },
+  {
+    "name": "Kodagu",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "KOD",
+    "isActive": true
+  },
+  {
+    "name": "Koderma",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "KOD",
+    "isActive": true
+  },
+  {
+    "name": "Kohima",
+    "stateId": "NA",
+    "stateName": "NAGALAND",
+    "code": "KOH",
+    "isActive": true
+  },
+  {
+    "name": "Kokrajhar",
+    "stateId": "AS",
+    "stateName": "ASSAM",
+    "code": "KOK",
+    "isActive": true
+  },
+  {
+    "name": "Kolar",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "KOL",
+    "isActive": true
+  },
+  {
+    "name": "Kolasib",
+    "stateId": "MI",
+    "stateName": "MIZORAM",
+    "code": "KOL",
+    "isActive": true
+  },
+  {
+    "name": "Kolhapur",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "KOL",
+    "isActive": true
+  },
+  {
+    "name": "Kolkata",
+    "stateId": "WE",
+    "stateName": "WEST BENGAL",
+    "code": "KOL",
+    "isActive": true
+  },
+  {
+    "name": "Kollam",
+    "stateId": "KE",
+    "stateName": "KERALA",
+    "code": "KOL",
+    "isActive": true
+  },
+  {
+    "name": "Koppal",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "KOP",
+    "isActive": true
+  },
+  {
+    "name": "Koraput",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "KOR",
+    "isActive": true
+  },
+  {
+    "name": "Korba",
+    "stateId": "CH",
+    "stateName": "CHATTISGARH",
+    "code": "KOR",
+    "isActive": true
+  },
+  {
+    "name": "Kota",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "KOT",
+    "isActive": true
+  },
+  {
+    "name": "Kottayam",
+    "stateId": "KE",
+    "stateName": "KERALA",
+    "code": "KOT",
+    "isActive": true
+  },
+  {
+    "name": "Kozhikode",
+    "stateId": "KE",
+    "stateName": "KERALA",
+    "code": "KOZ",
+    "isActive": true
+  },
+  {
+    "name": "Krishna",
+    "stateId": "AN",
+    "stateName": "ANDHRA PRADESH",
+    "code": "KRI",
+    "isActive": true
+  },
+  {
+    "name": "Krishnagiri",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "KRI",
+    "isActive": true
+  },
+  {
+    "name": "Kulgam",
+    "stateId": "JA",
+    "stateName": "JAMMU & KASHMIR",
+    "code": "KUL",
+    "isActive": true
+  },
+  {
+    "name": "Kullu",
+    "stateId": "HI",
+    "stateName": "HIMACHAL PRADESH",
+    "code": "KUL",
+    "isActive": true
+  },
+  {
+    "name": "Kupwara",
+    "stateId": "JA",
+    "stateName": "JAMMU & KASHMIR",
+    "code": "KUP",
+    "isActive": true
+  },
+  {
+    "name": "Kurnool",
+    "stateId": "AN",
+    "stateName": "ANDHRA PRADESH",
+    "code": "KUR",
+    "isActive": true
+  },
+  {
+    "name": "Kurukshetra",
+    "stateId": "HA",
+    "stateName": "HARYANA",
+    "code": "KUR",
+    "isActive": true
+  },
+  {
+    "name": "Kurung Kumey",
+    "stateId": "AR",
+    "stateName": "ARUNACHAL PRADESH",
+    "code": "KUR",
+    "isActive": true
+  },
+  {
+    "name": "Kushinagar",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "KUS",
+    "isActive": true
+  },
+  {
+    "name": "Lahul & Spiti",
+    "stateId": "HI",
+    "stateName": "HIMACHAL PRADESH",
+    "code": "LAH",
+    "isActive": true
+  },
+  {
+    "name": "Lakhimpur",
+    "stateId": "AS",
+    "stateName": "ASSAM",
+    "code": "LAK",
+    "isActive": true
+  },
+  {
+    "name": "Lakhisarai",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "LAK",
+    "isActive": true
+  },
+  {
+    "name": "Lakshadweep",
+    "stateId": "LA",
+    "stateName": "LAKSHADWEEP",
+    "code": "LAK",
+    "isActive": true
+  },
+  {
+    "name": "Lalitpur",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "LAL",
+    "isActive": true
+  },
+  {
+    "name": "Latehar",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "LAT",
+    "isActive": true
+  },
+  {
+    "name": "Latur",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "LAT",
+    "isActive": true
+  },
+  {
+    "name": "Lawngtlai",
+    "stateId": "MI",
+    "stateName": "MIZORAM",
+    "code": "LAW",
+    "isActive": true
+  },
+  {
+    "name": "Leh",
+    "stateId": "JA",
+    "stateName": "JAMMU & KASHMIR",
+    "code": "LEH",
+    "isActive": true
+  },
+  {
+    "name": "Lohardaga",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "LOH",
+    "isActive": true
+  },
+  {
+    "name": "Lohit",
+    "stateId": "AR",
+    "stateName": "ARUNACHAL PRADESH",
+    "code": "LOH",
+    "isActive": true
+  },
+  {
+    "name": "Longleng",
+    "stateId": "NA",
+    "stateName": "NAGALAND",
+    "code": "LON",
+    "isActive": true
+  },
+  {
+    "name": "Lower Dibang Valley",
+    "stateId": "AR",
+    "stateName": "ARUNACHAL PRADESH",
+    "code": "LOW",
+    "isActive": true
+  },
+  {
+    "name": "Lucknow",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "LUC",
+    "isActive": true
+  },
+  {
+    "name": "Ludhiana",
+    "stateId": "PU",
+    "stateName": "PUNJAB",
+    "code": "LUD",
+    "isActive": true
+  },
+  {
+    "name": "Lunglei",
+    "stateId": "MI",
+    "stateName": "MIZORAM",
+    "code": "LUN",
+    "isActive": true
+  },
+  {
+    "name": "Madhubani",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "MAD",
+    "isActive": true
+  },
+  {
+    "name": "Madurai",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "MAD",
+    "isActive": true
+  },
+  {
+    "name": "Mahabub Nagar",
+    "stateId": "TE",
+    "stateName": "TELANGANA",
+    "code": "MAH",
+    "isActive": true
+  },
+  {
+    "name": "Maharajganj",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "MAH",
+    "isActive": true
+  },
+  {
+    "name": "Mahasamund",
+    "stateId": "CH",
+    "stateName": "CHATTISGARH",
+    "code": "MAH",
+    "isActive": true
+  },
+  {
+    "name": "Mahe",
+    "stateId": "PO",
+    "stateName": "PONDICHERRY",
+    "code": "MAH",
+    "isActive": true
+  },
+  {
+    "name": "Mahendragarh",
+    "stateId": "HA",
+    "stateName": "HARYANA",
+    "code": "MAH",
+    "isActive": true
+  },
+  {
+    "name": "Mahesana",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "MAH",
+    "isActive": true
+  },
+  {
+    "name": "Mainpuri",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "MAI",
+    "isActive": true
+  },
+  {
+    "name": "Malappuram",
+    "stateId": "KE",
+    "stateName": "KERALA",
+    "code": "MAL",
+    "isActive": true
+  },
+  {
+    "name": "Malda",
+    "stateId": "WE",
+    "stateName": "WEST BENGAL",
+    "code": "MAL",
+    "isActive": true
+  },
+  {
+    "name": "Malkangiri",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "MAL",
+    "isActive": true
+  },
+  {
+    "name": "Mammit",
+    "stateId": "MI",
+    "stateName": "MIZORAM",
+    "code": "MAM",
+    "isActive": true
+  },
+  {
+    "name": "Mandi",
+    "stateId": "HI",
+    "stateName": "HIMACHAL PRADESH",
+    "code": "MAN",
+    "isActive": true
+  },
+  {
+    "name": "Mandla",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "MAN",
+    "isActive": true
+  },
+  {
+    "name": "Mandya",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "MAN",
+    "isActive": true
+  },
+  {
+    "name": "Mansa",
+    "stateId": "PU",
+    "stateName": "PUNJAB",
+    "code": "MAN",
+    "isActive": true
+  },
+  {
+    "name": "Marigaon",
+    "stateId": "AS",
+    "stateName": "ASSAM",
+    "code": "MAR",
+    "isActive": true
+  },
+  {
+    "name": "Mathura",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "MAT",
+    "isActive": true
+  },
+  {
+    "name": "Mau",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "MAU",
+    "isActive": true
+  },
+  {
+    "name": "Mayurbhanj",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "MAY",
+    "isActive": true
+  },
+  {
+    "name": "Medak",
+    "stateId": "TE",
+    "stateName": "TELANGANA",
+    "code": "MED",
+    "isActive": true
+  },
+  {
+    "name": "Medinipur",
+    "stateId": "WE",
+    "stateName": "WEST BENGAL",
+    "code": "MED",
+    "isActive": true
+  },
+  {
+    "name": "Meerut",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "MEE",
+    "isActive": true
+  },
+  {
+    "name": "Mirzapur",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "MIR",
+    "isActive": true
+  },
+  {
+    "name": "Moga",
+    "stateId": "PU",
+    "stateName": "PUNJAB",
+    "code": "MOG",
+    "isActive": true
+  },
+  {
+    "name": "Mohali",
+    "stateId": "PU",
+    "stateName": "PUNJAB",
+    "code": "MOH",
+    "isActive": true
+  },
+  {
+    "name": "Mokokchung",
+    "stateId": "NA",
+    "stateName": "NAGALAND",
+    "code": "MOK",
+    "isActive": true
+  },
+  {
+    "name": "Mon",
+    "stateId": "NA",
+    "stateName": "NAGALAND",
+    "code": "MON",
+    "isActive": true
+  },
+  {
+    "name": "Moradabad",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "MOR",
+    "isActive": true
+  },
+  {
+    "name": "Morena",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "MOR",
+    "isActive": true
+  },
+  {
+    "name": "Muktsar",
+    "stateId": "PU",
+    "stateName": "PUNJAB",
+    "code": "MUK",
+    "isActive": true
+  },
+  {
+    "name": "Mumbai",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "MUM",
+    "isActive": true
+  },
+  {
+    "name": "Munger",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "MUN",
+    "isActive": true
+  },
+  {
+    "name": "Murshidabad",
+    "stateId": "WE",
+    "stateName": "WEST BENGAL",
+    "code": "MUR",
+    "isActive": true
+  },
+  {
+    "name": "Muzaffarnagar",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "MUZ",
+    "isActive": true
+  },
+  {
+    "name": "Muzaffarpur",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "MUZ",
+    "isActive": true
+  },
+  {
+    "name": "Mysore",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "MYS",
+    "isActive": true
+  },
+  {
+    "name": "Nabarangapur",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "NAB",
+    "isActive": true
+  },
+  {
+    "name": "Nadia",
+    "stateId": "WE",
+    "stateName": "WEST BENGAL",
+    "code": "NAD",
+    "isActive": true
+  },
+  {
+    "name": "Nagaon",
+    "stateId": "AS",
+    "stateName": "ASSAM",
+    "code": "NAG",
+    "isActive": true
+  },
+  {
+    "name": "Nagapattinam",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "NAG",
+    "isActive": true
+  },
+  {
+    "name": "Nagaur",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "NAG",
+    "isActive": true
+  },
+  {
+    "name": "Nagpur",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "NAG",
+    "isActive": true
+  },
+  {
+    "name": "Nainital",
+    "stateId": "UT",
+    "stateName": "UTTARAKHAND",
+    "code": "NAI",
+    "isActive": true
+  },
+  {
+    "name": "Nalanda",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "NAL",
+    "isActive": true
+  },
+  {
+    "name": "Nalbari",
+    "stateId": "AS",
+    "stateName": "ASSAM",
+    "code": "NAL",
+    "isActive": true
+  },
+  {
+    "name": "Nalgonda",
+    "stateId": "TE",
+    "stateName": "TELANGANA",
+    "code": "NAL",
+    "isActive": true
+  },
+  {
+    "name": "Namakkal",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "NAM",
+    "isActive": true
+  },
+  {
+    "name": "Nandurbar",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "NAN",
+    "isActive": true
+  },
+  {
+    "name": "Narayanpur",
+    "stateId": "CH",
+    "stateName": "CHATTISGARH",
+    "code": "NAR",
+    "isActive": true
+  },
+  {
+    "name": "Narmada",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "NAR",
+    "isActive": true
+  },
+  {
+    "name": "Narsinghpur",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "NAR",
+    "isActive": true
+  },
+  {
+    "name": "Nashik",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "NAS",
+    "isActive": true
+  },
+  {
+    "name": "Navsari",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "NAV",
+    "isActive": true
+  },
+  {
+    "name": "Nawada",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "NAW",
+    "isActive": true
+  },
+  {
+    "name": "Nawanshahr",
+    "stateId": "PU",
+    "stateName": "PUNJAB",
+    "code": "NAW",
+    "isActive": true
+  },
+  {
+    "name": "Nayagarh",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "NAY",
+    "isActive": true
+  },
+  {
+    "name": "Neemuch",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "NEE",
+    "isActive": true
+  },
+  {
+    "name": "Nellore",
+    "stateId": "AN",
+    "stateName": "ANDHRA PRADESH",
+    "code": "NEL",
+    "isActive": true
+  },
+  {
+    "name": "New Delhi",
+    "stateId": "DE",
+    "stateName": "DELHI",
+    "code": "NEW",
+    "isActive": true
+  },
+  {
+    "name": "Nicobar",
+    "stateId": "AN",
+    "stateName": "ANDAMAN & NICOBAR ISLANDS",
+    "code": "NIC",
+    "isActive": true
+  },
+  {
+    "name": "Nilgiris",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "NIL",
+    "isActive": true
+  },
+  {
+    "name": "Nizamabad",
+    "stateId": "TE",
+    "stateName": "TELANGANA",
+    "code": "NIZ",
+    "isActive": true
+  },
+  {
+    "name": "North 24 Parganas",
+    "stateId": "WE",
+    "stateName": "WEST BENGAL",
+    "code": "NOR",
+    "isActive": true
+  },
+  {
+    "name": "North And Middle Andaman",
+    "stateId": "AN",
+    "stateName": "ANDAMAN & NICOBAR ISLANDS",
+    "code": "NOR",
+    "isActive": true
+  },
+  {
+    "name": "North Cachar Hills",
+    "stateId": "AS",
+    "stateName": "ASSAM",
+    "code": "NOR",
+    "isActive": true
+  },
+  {
+    "name": "North East Delhi",
+    "stateId": "DE",
+    "stateName": "DELHI",
+    "code": "NOR",
+    "isActive": true
+  },
+  {
+    "name": "North Goa",
+    "stateId": "GO",
+    "stateName": "GOA",
+    "code": "NOR",
+    "isActive": true
+  },
+  {
+    "name": "North Sikkim",
+    "stateId": "SI",
+    "stateName": "SIKKIM",
+    "code": "NOR",
+    "isActive": true
+  },
+  {
+    "name": "North Tripura",
+    "stateId": "TR",
+    "stateName": "TRIPURA",
+    "code": "NOR",
+    "isActive": true
+  },
+  {
+    "name": "Nuapada",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "NUA",
+    "isActive": true
+  },
+  {
+    "name": "NULL",
+    "stateId": "NU",
+    "stateName": "NULL",
+    "code": "NUL",
+    "isActive": true
+  },
+  {
+    "name": "Osmanabad",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "OSM",
+    "isActive": true
+  },
+  {
+    "name": "Pakur",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "PAK",
+    "isActive": true
+  },
+  {
+    "name": "Palakkad",
+    "stateId": "KE",
+    "stateName": "KERALA",
+    "code": "PAL",
+    "isActive": true
+  },
+  {
+    "name": "Palamau",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "PAL",
+    "isActive": true
+  },
+  {
+    "name": "Pali",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "PAL",
+    "isActive": true
+  },
+  {
+    "name": "Panch Mahals",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "PAN",
+    "isActive": true
+  },
+  {
+    "name": "Panchkula",
+    "stateId": "HA",
+    "stateName": "HARYANA",
+    "code": "PAN",
+    "isActive": true
+  },
+  {
+    "name": "Panna",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "PAN",
+    "isActive": true
+  },
+  {
+    "name": "Papum Pare",
+    "stateId": "AR",
+    "stateName": "ARUNACHAL PRADESH",
+    "code": "PAP",
+    "isActive": true
+  },
+  {
+    "name": "Parbhani",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "PAR",
+    "isActive": true
+  },
+  {
+    "name": "Patan",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "PAT",
+    "isActive": true
+  },
+  {
+    "name": "Pathanamthitta",
+    "stateId": "KE",
+    "stateName": "KERALA",
+    "code": "PAT",
+    "isActive": true
+  },
+  {
+    "name": "Patiala",
+    "stateId": "PU",
+    "stateName": "PUNJAB",
+    "code": "PAT",
+    "isActive": true
+  },
+  {
+    "name": "Patna",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "PAT",
+    "isActive": true
+  },
+  {
+    "name": "Pauri Garhwal",
+    "stateId": "UT",
+    "stateName": "UTTARAKHAND",
+    "code": "PAU",
+    "isActive": true
+  },
+  {
+    "name": "Perambalur",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "PER",
+    "isActive": true
+  },
+  {
+    "name": "Peren",
+    "stateId": "NA",
+    "stateName": "NAGALAND",
+    "code": "PER",
+    "isActive": true
+  },
+  {
+    "name": "Phek",
+    "stateId": "NA",
+    "stateName": "NAGALAND",
+    "code": "PHE",
+    "isActive": true
+  },
+  {
+    "name": "Pilibhit",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "PIL",
+    "isActive": true
+  },
+  {
+    "name": "Pithoragarh",
+    "stateId": "UT",
+    "stateName": "UTTARAKHAND",
+    "code": "PIT",
+    "isActive": true
+  },
+  {
+    "name": "Pondicherry",
+    "stateId": "PO",
+    "stateName": "PONDICHERRY",
+    "code": "PON",
+    "isActive": true
+  },
+  {
+    "name": "Poonch",
+    "stateId": "JA",
+    "stateName": "JAMMU & KASHMIR",
+    "code": "POO",
+    "isActive": true
+  },
+  {
+    "name": "Porbandar",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "POR",
+    "isActive": true
+  },
+  {
+    "name": "Prakasam",
+    "stateId": "AN",
+    "stateName": "ANDHRA PRADESH",
+    "code": "PRA",
+    "isActive": true
+  },
+  {
+    "name": "Pratapgarh",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "PRA",
+    "isActive": true
+  },
+  {
+    "name": "Pudukkottai",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "PUD",
+    "isActive": true
+  },
+  {
+    "name": "Pulwama",
+    "stateId": "JA",
+    "stateName": "JAMMU & KASHMIR",
+    "code": "PUL",
+    "isActive": true
+  },
+  {
+    "name": "Pune",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "PUN",
+    "isActive": true
+  },
+  {
+    "name": "Puri",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "PUR",
+    "isActive": true
+  },
+  {
+    "name": "Purnia",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "PUR",
+    "isActive": true
+  },
+  {
+    "name": "Puruliya",
+    "stateId": "WE",
+    "stateName": "WEST BENGAL",
+    "code": "PUR",
+    "isActive": true
+  },
+  {
+    "name": "Raebareli",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "RAE",
+    "isActive": true
+  },
+  {
+    "name": "Raichur",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "RAI",
+    "isActive": true
+  },
+  {
+    "name": "Raigarh",
+    "stateId": "CH",
+    "stateName": "CHATTISGARH",
+    "code": "RAI",
+    "isActive": true
+  },
+  {
+    "name": "Raisen",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "RAI",
+    "isActive": true
+  },
+  {
+    "name": "Rajauri",
+    "stateId": "JA",
+    "stateName": "JAMMU & KASHMIR",
+    "code": "RAJ",
+    "isActive": true
+  },
+  {
+    "name": "Rajgarh",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "RAJ",
+    "isActive": true
+  },
+  {
+    "name": "Rajkot",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "RAJ",
+    "isActive": true
+  },
+  {
+    "name": "Rajnandgaon",
+    "stateId": "CH",
+    "stateName": "CHATTISGARH",
+    "code": "RAJ",
+    "isActive": true
+  },
+  {
+    "name": "Rajsamand",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "RAJ",
+    "isActive": true
+  },
+  {
+    "name": "Ramanagar",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "RAM",
+    "isActive": true
+  },
+  {
+    "name": "Ramanathapuram",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "RAM",
+    "isActive": true
+  },
+  {
+    "name": "Ramgarh",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "RAM",
+    "isActive": true
+  },
+  {
+    "name": "Rampur",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "RAM",
+    "isActive": true
+  },
+  {
+    "name": "Ranchi",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "RAN",
+    "isActive": true
+  },
+  {
+    "name": "Ratlam",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "RAT",
+    "isActive": true
+  },
+  {
+    "name": "Rayagada",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "RAY",
+    "isActive": true
+  },
+  {
+    "name": "Reasi",
+    "stateId": "JA",
+    "stateName": "JAMMU & KASHMIR",
+    "code": "REA",
+    "isActive": true
+  },
+  {
+    "name": "Rewa",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "REW",
+    "isActive": true
+  },
+  {
+    "name": "Rewari",
+    "stateId": "HA",
+    "stateName": "HARYANA",
+    "code": "REW",
+    "isActive": true
+  },
+  {
+    "name": "Ri Bhoi",
+    "stateId": "ME",
+    "stateName": "MEGHALAYA",
+    "code": "RI",
+    "isActive": true
+  },
+  {
+    "name": "Rohtak",
+    "stateId": "HA",
+    "stateName": "HARYANA",
+    "code": "ROH",
+    "isActive": true
+  },
+  {
+    "name": "Rohtas",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "ROH",
+    "isActive": true
+  },
+  {
+    "name": "Ropar",
+    "stateId": "PU",
+    "stateName": "PUNJAB",
+    "code": "ROP",
+    "isActive": true
+  },
+  {
+    "name": "Rudraprayag",
+    "stateId": "UT",
+    "stateName": "UTTARAKHAND",
+    "code": "RUD",
+    "isActive": true
+  },
+  {
+    "name": "Rupnagar",
+    "stateId": "PU",
+    "stateName": "PUNJAB",
+    "code": "RUP",
+    "isActive": true
+  },
+  {
+    "name": "Sabarkantha",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "SAB",
+    "isActive": true
+  },
+  {
+    "name": "Sagar",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "SAG",
+    "isActive": true
+  },
+  {
+    "name": "Saharanpur",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "SAH",
+    "isActive": true
+  },
+  {
+    "name": "Saharsa",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "SAH",
+    "isActive": true
+  },
+  {
+    "name": "Sahibganj",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "SAH",
+    "isActive": true
+  },
+  {
+    "name": "Saiha",
+    "stateId": "MI",
+    "stateName": "MIZORAM",
+    "code": "SAI",
+    "isActive": true
+  },
+  {
+    "name": "Salem",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "SAL",
+    "isActive": true
+  },
+  {
+    "name": "Samastipur",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "SAM",
+    "isActive": true
+  },
+  {
+    "name": "Sambalpur",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "SAM",
+    "isActive": true
+  },
+  {
+    "name": "Sangli",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "SAN",
+    "isActive": true
+  },
+  {
+    "name": "Sangrur",
+    "stateId": "PU",
+    "stateName": "PUNJAB",
+    "code": "SAN",
+    "isActive": true
+  },
+  {
+    "name": "Sant Ravidas Nagar",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "SAN",
+    "isActive": true
+  },
+  {
+    "name": "Saran",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "SAR",
+    "isActive": true
+  },
+  {
+    "name": "Satna",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "SAT",
+    "isActive": true
+  },
+  {
+    "name": "Sawai Madhopur",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "SAW",
+    "isActive": true
+  },
+  {
+    "name": "Sehore",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "SEH",
+    "isActive": true
+  },
+  {
+    "name": "Senapati",
+    "stateId": "MA",
+    "stateName": "MANIPUR",
+    "code": "SEN",
+    "isActive": true
+  },
+  {
+    "name": "Seoni",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "SEO",
+    "isActive": true
+  },
+  {
+    "name": "Seraikela-kharsawan",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "SER",
+    "isActive": true
+  },
+  {
+    "name": "Serchhip",
+    "stateId": "MI",
+    "stateName": "MIZORAM",
+    "code": "SER",
+    "isActive": true
+  },
+  {
+    "name": "Shahdol",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "SHA",
+    "isActive": true
+  },
+  {
+    "name": "Shahjahanpur",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "SHA",
+    "isActive": true
+  },
+  {
+    "name": "Sheohar",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "SHE",
+    "isActive": true
+  },
+  {
+    "name": "Sheopur",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "SHE",
+    "isActive": true
+  },
+  {
+    "name": "Shimla",
+    "stateId": "HI",
+    "stateName": "HIMACHAL PRADESH",
+    "code": "SHI",
+    "isActive": true
+  },
+  {
+    "name": "Shimoga",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "SHI",
+    "isActive": true
+  },
+  {
+    "name": "Shivpuri",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "SHI",
+    "isActive": true
+  },
+  {
+    "name": "Shopian",
+    "stateId": "JA",
+    "stateName": "JAMMU & KASHMIR",
+    "code": "SHO",
+    "isActive": true
+  },
+  {
+    "name": "Shrawasti",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "SHR",
+    "isActive": true
+  },
+  {
+    "name": "Sibsagar",
+    "stateId": "AS",
+    "stateName": "ASSAM",
+    "code": "SIB",
+    "isActive": true
+  },
+  {
+    "name": "Siddharthnagar",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "SID",
+    "isActive": true
+  },
+  {
+    "name": "Sidhi",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "SID",
+    "isActive": true
+  },
+  {
+    "name": "Sikar",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "SIK",
+    "isActive": true
+  },
+  {
+    "name": "Simdega",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "SIM",
+    "isActive": true
+  },
+  {
+    "name": "Singrauli",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "SIN",
+    "isActive": true
+  },
+  {
+    "name": "Sirmaur",
+    "stateId": "HI",
+    "stateName": "HIMACHAL PRADESH",
+    "code": "SIR",
+    "isActive": true
+  },
+  {
+    "name": "Sirohi",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "SIR",
+    "isActive": true
+  },
+  {
+    "name": "Sirsa",
+    "stateId": "HA",
+    "stateName": "HARYANA",
+    "code": "SIR",
+    "isActive": true
+  },
+  {
+    "name": "Sitamarhi",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "SIT",
+    "isActive": true
+  },
+  {
+    "name": "Sitapur",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "SIT",
+    "isActive": true
+  },
+  {
+    "name": "Sivaganga",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "SIV",
+    "isActive": true
+  },
+  {
+    "name": "Siwan",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "SIW",
+    "isActive": true
+  },
+  {
+    "name": "Solan",
+    "stateId": "HI",
+    "stateName": "HIMACHAL PRADESH",
+    "code": "SOL",
+    "isActive": true
+  },
+  {
+    "name": "Solapur",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "SOL",
+    "isActive": true
+  },
+  {
+    "name": "Sonapur",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "SON",
+    "isActive": true
+  },
+  {
+    "name": "Sonbhadra",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "SON",
+    "isActive": true
+  },
+  {
+    "name": "Sonipat",
+    "stateId": "HA",
+    "stateName": "HARYANA",
+    "code": "SON",
+    "isActive": true
+  },
+  {
+    "name": "Sonitpur",
+    "stateId": "AS",
+    "stateName": "ASSAM",
+    "code": "SON",
+    "isActive": true
+  },
+  {
+    "name": "South 24 Parganas",
+    "stateId": "WE",
+    "stateName": "WEST BENGAL",
+    "code": "SOU",
+    "isActive": true
+  },
+  {
+    "name": "South Andaman",
+    "stateId": "AN",
+    "stateName": "ANDAMAN & NICOBAR ISLANDS",
+    "code": "SOU",
+    "isActive": true
+  },
+  {
+    "name": "South Delhi",
+    "stateId": "DE",
+    "stateName": "DELHI",
+    "code": "SOU",
+    "isActive": true
+  },
+  {
+    "name": "South Garo Hills",
+    "stateId": "ME",
+    "stateName": "MEGHALAYA",
+    "code": "SOU",
+    "isActive": true
+  },
+  {
+    "name": "South Goa",
+    "stateId": "GO",
+    "stateName": "GOA",
+    "code": "SOU",
+    "isActive": true
+  },
+  {
+    "name": "South Sikkim",
+    "stateId": "SI",
+    "stateName": "SIKKIM",
+    "code": "SOU",
+    "isActive": true
+  },
+  {
+    "name": "South Tripura",
+    "stateId": "TR",
+    "stateName": "TRIPURA",
+    "code": "SOU",
+    "isActive": true
+  },
+  {
+    "name": "Srikakulam",
+    "stateId": "AN",
+    "stateName": "ANDHRA PRADESH",
+    "code": "SRI",
+    "isActive": true
+  },
+  {
+    "name": "Srinagar",
+    "stateId": "JA",
+    "stateName": "JAMMU & KASHMIR",
+    "code": "SRI",
+    "isActive": true
+  },
+  {
+    "name": "Sultanpur",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "SUL",
+    "isActive": true
+  },
+  {
+    "name": "Sundergarh",
+    "stateId": "OD",
+    "stateName": "ODISHA",
+    "code": "SUN",
+    "isActive": true
+  },
+  {
+    "name": "Supaul",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "SUP",
+    "isActive": true
+  },
+  {
+    "name": "Surendra Nagar",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "SUR",
+    "isActive": true
+  },
+  {
+    "name": "Surguja",
+    "stateId": "CH",
+    "stateName": "CHATTISGARH",
+    "code": "SUR",
+    "isActive": true
+  },
+  {
+    "name": "Tamenglong",
+    "stateId": "MA",
+    "stateName": "MANIPUR",
+    "code": "TAM",
+    "isActive": true
+  },
+  {
+    "name": "Tapi",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "TAP",
+    "isActive": true
+  },
+  {
+    "name": "Tarn Taran",
+    "stateId": "PU",
+    "stateName": "PUNJAB",
+    "code": "TAR",
+    "isActive": true
+  },
+  {
+    "name": "Tawang",
+    "stateId": "AR",
+    "stateName": "ARUNACHAL PRADESH",
+    "code": "TAW",
+    "isActive": true
+  },
+  {
+    "name": "Tehri Garhwal",
+    "stateId": "UT",
+    "stateName": "UTTARAKHAND",
+    "code": "TEH",
+    "isActive": true
+  },
+  {
+    "name": "Thane",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "THA",
+    "isActive": true
+  },
+  {
+    "name": "Thanjavur",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "THA",
+    "isActive": true
+  },
+  {
+    "name": "The Dangs",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "THE",
+    "isActive": true
+  },
+  {
+    "name": "Theni",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "THE",
+    "isActive": true
+  },
+  {
+    "name": "Thiruvananthapuram",
+    "stateId": "KE",
+    "stateName": "KERALA",
+    "code": "THI",
+    "isActive": true
+  },
+  {
+    "name": "Thoubal",
+    "stateId": "MA",
+    "stateName": "MANIPUR",
+    "code": "THO",
+    "isActive": true
+  },
+  {
+    "name": "Thrissur",
+    "stateId": "KE",
+    "stateName": "KERALA",
+    "code": "THR",
+    "isActive": true
+  },
+  {
+    "name": "Tikamgarh",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "TIK",
+    "isActive": true
+  },
+  {
+    "name": "Tinsukia",
+    "stateId": "AS",
+    "stateName": "ASSAM",
+    "code": "TIN",
+    "isActive": true
+  },
+  {
+    "name": "Tirap",
+    "stateId": "AR",
+    "stateName": "ARUNACHAL PRADESH",
+    "code": "TIR",
+    "isActive": true
+  },
+  {
+    "name": "Tiruvannamalai",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "TIR",
+    "isActive": true
+  },
+  {
+    "name": "Tonk",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "TON",
+    "isActive": true
+  },
+  {
+    "name": "Tuensang",
+    "stateId": "NA",
+    "stateName": "NAGALAND",
+    "code": "TUE",
+    "isActive": true
+  },
+  {
+    "name": "Tumkur",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "TUM",
+    "isActive": true
+  },
+  {
+    "name": "Tuticorin",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "TUT",
+    "isActive": true
+  },
+  {
+    "name": "Udaipur",
+    "stateId": "RA",
+    "stateName": "RAJASTHAN",
+    "code": "UDA",
+    "isActive": true
+  },
+  {
+    "name": "Udham Singh Nagar",
+    "stateId": "UT",
+    "stateName": "UTTARAKHAND",
+    "code": "UDH",
+    "isActive": true
+  },
+  {
+    "name": "Udhampur",
+    "stateId": "JA",
+    "stateName": "JAMMU & KASHMIR",
+    "code": "UDH",
+    "isActive": true
+  },
+  {
+    "name": "Udupi",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "UDU",
+    "isActive": true
+  },
+  {
+    "name": "Ujjain",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "UJJ",
+    "isActive": true
+  },
+  {
+    "name": "Ukhrul",
+    "stateId": "MA",
+    "stateName": "MANIPUR",
+    "code": "UKH",
+    "isActive": true
+  },
+  {
+    "name": "Umaria",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "UMA",
+    "isActive": true
+  },
+  {
+    "name": "Una",
+    "stateId": "HI",
+    "stateName": "HIMACHAL PRADESH",
+    "code": "UNA",
+    "isActive": true
+  },
+  {
+    "name": "Unnao",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "UNN",
+    "isActive": true
+  },
+  {
+    "name": "Upper Siang",
+    "stateId": "AR",
+    "stateName": "ARUNACHAL PRADESH",
+    "code": "UPP",
+    "isActive": true
+  },
+  {
+    "name": "Uttara Kannada",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "UTT",
+    "isActive": true
+  },
+  {
+    "name": "Uttarkashi",
+    "stateId": "UT",
+    "stateName": "UTTARAKHAND",
+    "code": "UTT",
+    "isActive": true
+  },
+  {
+    "name": "Vadodara",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "VAD",
+    "isActive": true
+  },
+  {
+    "name": "Vaishali",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "VAI",
+    "isActive": true
+  },
+  {
+    "name": "Valsad",
+    "stateId": "GU",
+    "stateName": "GUJARAT",
+    "code": "VAL",
+    "isActive": true
+  },
+  {
+    "name": "Varanasi",
+    "stateId": "UT",
+    "stateName": "UTTAR PRADESH",
+    "code": "VAR",
+    "isActive": true
+  },
+  {
+    "name": "Vellore",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "VEL",
+    "isActive": true
+  },
+  {
+    "name": "Vidisha",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "VID",
+    "isActive": true
+  },
+  {
+    "name": "Villupuram",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "VIL",
+    "isActive": true
+  },
+  {
+    "name": "Virudhunagar",
+    "stateId": "TA",
+    "stateName": "TAMIL NADU",
+    "code": "VIR",
+    "isActive": true
+  },
+  {
+    "name": "Visakhapatnam",
+    "stateId": "AN",
+    "stateName": "ANDHRA PRADESH",
+    "code": "VIS",
+    "isActive": true
+  },
+  {
+    "name": "Vizianagaram",
+    "stateId": "AN",
+    "stateName": "ANDHRA PRADESH",
+    "code": "VIZ",
+    "isActive": true
+  },
+  {
+    "name": "Warangal",
+    "stateId": "TE",
+    "stateName": "TELANGANA",
+    "code": "WAR",
+    "isActive": true
+  },
+  {
+    "name": "Wardha",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "WAR",
+    "isActive": true
+  },
+  {
+    "name": "Washim",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "WAS",
+    "isActive": true
+  },
+  {
+    "name": "Wayanad",
+    "stateId": "KE",
+    "stateName": "KERALA",
+    "code": "WAY",
+    "isActive": true
+  },
+  {
+    "name": "West Champaran",
+    "stateId": "BI",
+    "stateName": "BIHAR",
+    "code": "WES",
+    "isActive": true
+  },
+  {
+    "name": "West Delhi",
+    "stateId": "DE",
+    "stateName": "DELHI",
+    "code": "WES",
+    "isActive": true
+  },
+  {
+    "name": "West Garo Hills",
+    "stateId": "ME",
+    "stateName": "MEGHALAYA",
+    "code": "WES",
+    "isActive": true
+  },
+  {
+    "name": "West Godavari",
+    "stateId": "AN",
+    "stateName": "ANDHRA PRADESH",
+    "code": "WES",
+    "isActive": true
+  },
+  {
+    "name": "West Midnapore",
+    "stateId": "WE",
+    "stateName": "WEST BENGAL",
+    "code": "WES",
+    "isActive": true
+  },
+  {
+    "name": "West Nimar",
+    "stateId": "MA",
+    "stateName": "MADHYA PRADESH",
+    "code": "WES",
+    "isActive": true
+  },
+  {
+    "name": "West Siang",
+    "stateId": "AR",
+    "stateName": "ARUNACHAL PRADESH",
+    "code": "WES",
+    "isActive": true
+  },
+  {
+    "name": "West Sikkim",
+    "stateId": "SI",
+    "stateName": "SIKKIM",
+    "code": "WES",
+    "isActive": true
+  },
+  {
+    "name": "West Singhbhum",
+    "stateId": "JH",
+    "stateName": "JHARKHAND",
+    "code": "WES",
+    "isActive": true
+  },
+  {
+    "name": "West Tripura",
+    "stateId": "TR",
+    "stateName": "TRIPURA",
+    "code": "WES",
+    "isActive": true
+  },
+  {
+    "name": "Wokha",
+    "stateId": "NA",
+    "stateName": "NAGALAND",
+    "code": "WOK",
+    "isActive": true
+  },
+  {
+    "name": "Yadgir",
+    "stateId": "KA",
+    "stateName": "KARNATAKA",
+    "code": "YAD",
+    "isActive": true
+  },
+  {
+    "name": "Yamuna Nagar",
+    "stateId": "HA",
+    "stateName": "HARYANA",
+    "code": "YAM",
+    "isActive": true
+  },
+  {
+    "name": "Yavatmal",
+    "stateId": "MA",
+    "stateName": "MAHARASHTRA",
+    "code": "YAV",
+    "isActive": true
+  },
+  {
+    "name": "Zunhebotto",
+    "stateId": "NA",
+    "stateName": "NAGALAND",
+    "code": "ZUN",
+    "isActive": true
+  }
+]

@@ -1,0 +1,102 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+import type { ReactNode } from "react";
+import { Folder, HomeLine, Settings01, Users02, CreditCardMinus, Map01, HelpCircle, Calendar, Clock } from "@untitledui/icons";
+import { SidebarNavigationSimple } from "@/components/application/app-navigation/sidebar-navigation/sidebar-simple";
+
+const primaryNav = [
+    { label: "Overview", href: "/dashboard", icon: HomeLine },
+    {
+        label: "User management",
+        href: "/dashboard/user-management",
+        icon: Users02,
+        items: [
+            { label: "Users", href: "/dashboard/user-management/users" },
+            // { label: "Role management", href: "/dashboard/user-management/roles" },
+        ],
+    },
+    {
+        label: "Ad management",
+        href: "/dashboard/ad-management",
+        icon: Folder,
+        items: [
+            { label: "Ad moderation", href: "/dashboard/ad-moderation" },
+            { label: "Ad directory", href: "/dashboard/ad-management/ads" },
+            { label: "Categories", href: "/dashboard/ad-management/categories" },
+            { label: "Locations", href: "/dashboard/ad-management/locations", icon: Map01 },
+        ],
+    },
+    {
+        label: "Booking management",
+        href: "/dashboard/booking-management",
+        icon: Clock,
+        items: [
+            { label: "All Bookings", href: "/dashboard/booking-management" },
+        ],
+    },
+    // {
+    //     label: "Location management",
+    //     href: "/dashboard/location-management",
+    //     icon: Map01,
+    //     items: [
+    //         { label: "States", href: "/dashboard/location-management/states" },
+    //         { label: "Cities", href: "/dashboard/location-management/cities" },
+    //         { label: "Postal Codes", href: "/dashboard/location-management/postal-codes" },
+    //     ],
+    // },
+    {
+        label: "Content management",
+        href: "/dashboard/content-management",
+        icon: Folder,
+        items: [
+            { label: "News", href: "/dashboard/content-management/news" },
+            { label: "News Categories", href: "/dashboard/content-management/news-categories" },
+            { label: "Legal Documents", href: "/dashboard/content-management/legal" },
+        ],
+    },
+    {
+        label: "FAQ management",
+        href: "/dashboard/faq-management",
+        icon: HelpCircle,
+        items: [
+            { label: "FAQs", href: "/dashboard/faq-management/faqs" },
+            { label: "FAQ Categories", href: "/dashboard/faq-management/categories" },
+        ],
+    },
+    {
+        label: "Payments",
+        href: "/dashboard/transactions",
+        icon: CreditCardMinus,
+        items: [
+            { label: "Transactions", href: "/dashboard/transactions" },
+            { label: "Subscriptions", href: "/dashboard/subscriptions", icon: Calendar },
+        ],
+    },
+];
+
+const footerNav = [{ label: "Settings", href: "/dashboard/settings", icon: Settings01 }];
+
+export default function BookingManagementLayout({ children }: { children: ReactNode }) {
+    const pathname = usePathname();
+
+    return (
+        <div className="min-h-screen bg-primary">
+            <div className="flex min-h-screen flex-col lg:flex-row">
+                <SidebarNavigationSimple
+                    activeUrl={pathname ?? "/dashboard"}
+                    items={primaryNav}
+                    footerItems={footerNav}
+                    showAccountCard
+                    className="z-50 relative"
+                />
+
+                <main className="flex flex-col flex-1">
+                    <div className="flex-1 px-4 py-8 sm:px-6 lg:px-8 overflow-auto">
+                        <div className="mx-auto w-full max-w-6xl">{children}</div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    );
+}

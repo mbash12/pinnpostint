@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "60856065114",
+    "project_id": "adposting-cef8e",
+    "storage_bucket": "adposting-cef8e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:60856065114:android:126cc012aabbf0d3f04c63",
+        "android_client_info": {
+          "package_name": "com.pinnpost.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHEqtXLm3ajo5zRGEOjTr6E-eosadleDU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

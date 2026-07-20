@@ -1,0 +1,826 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-1.1.x", "linux-musl-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                    String              @id @default(uuid())
+  phone                 String              @unique
+  email                 String?             @unique
+  password              String
+  firstName             String
+  lastName              String?
+  role                  UserRole            @default(USER)
+  isActive              Boolean             @default(true)
+  isVerified            Boolean             @default(false)
+  avatar                String?
+  fcmToken              String?
+  createdAt             DateTime            @default(now())
+  updatedAt             DateTime            @updatedAt
+  ads                   Ad[]
+  bookings              Booking[]
+  authoredBlogs         Blog[]
+  moderationHistory     ModerationHistory[] @relation("ModeratorHistory")
+  notifications         Notification[]
+  profile               Profile?
+  recentLocations       RecentLocation[]
+  subscriptions         Subscription[]
+  transactions          Transaction[]
+  userLocations         UserLocation[]
+  wishlists             Wishlist[]
+  pushTokens            PushToken[]
+  reportedComplaints    Complaint[]         @relation("ComplaintReporter")
+  receivedComplaints    Complaint[]         @relation("ComplaintRespondent")
+  resolvedComplaints    Complaint[]         @relation("ComplaintResolver")
+  sentComplaintMessages ComplaintMessage[]  @relation("ComplaintMessageSender")
+  sentTransfers         Transfer[]          @relation("TransferFrom")
+  receivedTransfers     Transfer[]          @relation("TransferTo")
+  processedTransfers    Transfer[]          @relation("TransferProcessor")
+  userAConversations    Conversation[]      @relation("UserAConversations")
+  userBConversations    Conversation[]      @relation("UserBConversations")
+  sentMessages          Message[]           @relation("SentMessages")
+
+  @@index([createdAt])
+  @@index([role, isVerified])
+  @@index([isActive])
+  @@map("users")
+}
+
+model Profile {
+  id                 String      @id @default(uuid())
+  userId             String      @unique
+  bio                String?
+  address            String?
+  country            String?     @default("India")
+  stateId            String?
+  cityId             String?
+  postalCodeId       String?
+  dob                DateTime?
+  gender             String?
+  emailNotifications Boolean     @default(true)
+  pushNotifications  Boolean     @default(true)
+  user               User        @relation(fields: [userId], references: [id])
+  city               City?       @relation("ProfileCity", fields: [cityId], references: [id])
+  postalCode         PostalCode? @relation("ProfilePostalCode", fields: [postalCodeId], references: [id])
+  state              State?      @relation("ProfileState", fields: [stateId], references: [id])
+
+  @@map("profiles")
+}
+
+model Category {
+  id              String        @id @default(uuid())
+  name            String        @unique
+  slug            String        @unique
+  description     String?
+  image           String?
+  adPlaceholder   String?
+  isActive        Boolean       @default(true)
+  isFeatured      Boolean       @default(false)
+  supportsBooking Boolean       @default(false)
+  order           Int           @default(0)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  ads             Ad[]
+  subcategories   Subcategory[]
+
+  @@map("categories")
+}
+
+model Subcategory {
+  id              String      @id @default(uuid())
+  name            String
+  slug            String      @unique
+  description     String?
+  image           String?
+  categoryId      String
+  supportsBooking Boolean     @default(false)
+  isActive        Boolean     @default(true)
+  order           Int         @default(0)
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  ads             Ad[]
+  attributes      Attribute[]
+  category        Category    @relation(fields: [categoryId], references: [id])
+
+  @@unique([name, categoryId])
+  @@map("subcategories")
+}
+
+model Attribute {
+  id            String        @id @default(uuid())
+  name          String
+  type          String
+  options       Json?
+  image         String?
+  subcategoryId String
+  isRequired    Boolean       @default(false)
+  order         Int           @default(0)
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  adValues      AdAttribute[]
+  subcategory   Subcategory   @relation(fields: [subcategoryId], references: [id])
+
+  @@map("attributes")
+}
+
+model AdAttribute {
+  id          String    @id @default(uuid())
+  adId        String
+  attributeId String
+  value       String
+  ad          Ad        @relation(fields: [adId], references: [id], onDelete: Cascade)
+  attribute   Attribute @relation(fields: [attributeId], references: [id])
+
+  @@unique([adId, attributeId])
+  @@map("ad_attributes")
+}
+
+model Ad {
+  id                  String      @id @default(uuid())
+  title               String
+  description         String
+  price               Decimal?
+  discountedPrice     Decimal?
+  status              AdStatus    @default(REVIEW)
+  images              Json?
+  // Verbose location fields from Google Maps
+  locationLatitude    Float?
+  locationLongitude   Float?
+  locationRoad        String?
+  locationHouseNumber String?
+  locationCity        String?
+  locationState       String?
+  locationCountry     String?
+  locationPostalCode  String?
+  locationFormatted   String?
+  categoryId          String
+  subcategoryId       String?
+  userId              String
+  isFeatured          Boolean     @default(false)
+  slug                String?     @unique
+  createdAt           DateTime    @default(now())
+  updatedAt           DateTime    @updatedAt
+  expiresAt           DateTime?
+  rejectionReason     String?
+  isFlagged           Boolean     @default(false)
+  flagReason          String?
+  enableBooking       Boolean     @default(false)
+  bookingType         BookingType @default(DEFAULT)
+  slots               Json?
+  views               Int         @default(0)
+  shares              Int         @default(0)
+  attachment          Json?
+
+  // AdRevision tracking
+  hasRevision   Boolean @default(false)
+  revisionCount Int     @default(0)
+
+  attributes        AdAttribute[]
+  category          Category            @relation(fields: [categoryId], references: [id])
+  subcategory       Subcategory?        @relation(fields: [subcategoryId], references: [id])
+  user              User                @relation(fields: [userId], references: [id])
+  bookings          Booking[]
+  moderationHistory ModerationHistory[]
+  subscriptions     Subscription[]
+  wishlistItems     Wishlist[]
+  revisions         AdRevision[]
+  transfers         Transfer[]
+  messages          Message[]           @relation("AdContext")
+
+  @@index([locationLatitude, locationLongitude])
+  @@index([status, createdAt(sort: Desc)])
+  @@index([userId, createdAt(sort: Desc)])
+  @@index([isFeatured, status])
+  @@index([expiresAt, status])
+  @@index([locationCity])
+  @@index([createdAt(sort: Desc)])
+  @@map("ads")
+}
+
+model Conversation {
+  id            String    @id @default(uuid())
+  userAId       String
+  userA         User      @relation("UserAConversations", fields: [userAId], references: [id])
+  userBId       String
+  userB         User      @relation("UserBConversations", fields: [userBId], references: [id])
+  messages      Message[]
+  lastMessageAt DateTime  @default(now())
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@unique([userAId, userBId])
+  @@map("conversations")
+}
+
+model Message {
+  id             String       @id @default(uuid())
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id])
+  senderId       String
+  sender         User         @relation("SentMessages", fields: [senderId], references: [id])
+  text           String?
+  adId           String? // Optional: context ad for this message
+  ad             Ad?          @relation("AdContext", fields: [adId], references: [id])
+  isRead         Boolean      @default(false)
+  createdAt      DateTime     @default(now())
+
+  @@map("messages")
+}
+
+model AdRevision {
+  id   String @id @default(uuid())
+  adId String
+  ad   Ad     @relation(fields: [adId], references: [id], onDelete: Cascade)
+
+  // Store pending changes as JSON
+  changes Json
+
+  // Metadata
+  createdBy   String
+  createdAt   DateTime  @default(now())
+  autoApplyAt DateTime? // Auto-apply after this time
+
+  // Status: REVIEW = submitted to admin, APPROVED/REJECTED = reviewed
+  status     String    @default("REVIEW")
+  reviewedBy String?
+  reviewedAt DateTime?
+  reviewNote String?
+
+  @@index([adId, status])
+  @@map("ad_revisions")
+}
+
+model Location {
+  id            String         @id @default(uuid())
+  name          String
+  address       String?
+  latitude      Float
+  longitude     Float
+  country       String?        @default("India")
+  stateId       String?
+  cityId        String?
+  postalCodeId  String?
+  isActive      Boolean        @default(true)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  city          City?          @relation(fields: [cityId], references: [id])
+  postalCode    PostalCode?    @relation(fields: [postalCodeId], references: [id])
+  state         State?         @relation(fields: [stateId], references: [id])
+  userLocations UserLocation[]
+
+  @@map("locations")
+}
+
+model UserLocation {
+  id         String   @id @default(uuid())
+  userId     String
+  locationId String
+  isPrimary  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  location   Location @relation(fields: [locationId], references: [id])
+  user       User     @relation(fields: [userId], references: [id])
+
+  @@unique([userId, locationId])
+  @@map("user_locations")
+}
+
+model Booking {
+  id           String        @id @default(uuid())
+  adId         String
+  userId       String
+  startDate    DateTime?
+  endDate      DateTime?
+  slotId       String?
+  bookingDate  DateTime?
+  status       BookingStatus @default(SUBMITTED)
+  notes        String?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  ad           Ad            @relation(fields: [adId], references: [id])
+  user         User          @relation(fields: [userId], references: [id])
+  complaints   Complaint[]
+  transactions Transaction[]
+  transfers    Transfer[]
+
+  @@index([createdAt(sort: Desc)])
+  @@index([userId, status])
+  @@index([adId, status])
+  @@index([status])
+  @@map("bookings")
+}
+
+model Complaint {
+  id              String             @id @default(uuid())
+  bookingId       String
+  reporterId      String // User who filed the complaint (buyer)
+  respondentId    String // User being complained about (seller)
+  description     String // Complaint details
+  status          ComplaintStatus    @default(OPEN)
+  resolutionNote  String? // Admin's resolution notes
+  adminResolvedBy String? // Admin user ID who resolved the complaint
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+  booking         Booking            @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  reporter        User               @relation("ComplaintReporter", fields: [reporterId], references: [id])
+  respondent      User               @relation("ComplaintRespondent", fields: [respondentId], references: [id])
+  adminResolver   User?              @relation("ComplaintResolver", fields: [adminResolvedBy], references: [id])
+  messages        ComplaintMessage[]
+
+  @@index([status])
+  @@index([createdAt(sort: Desc)])
+  @@map("complaints")
+}
+
+model ComplaintMessage {
+  id          String                     @id @default(uuid())
+  complaintId String
+  senderId    String
+  senderType  ComplaintMessageSenderType
+  message     String
+  createdAt   DateTime                   @default(now())
+  updatedAt   DateTime                   @updatedAt
+
+  complaint Complaint @relation(fields: [complaintId], references: [id], onDelete: Cascade)
+  sender    User      @relation("ComplaintMessageSender", fields: [senderId], references: [id])
+
+  @@index([complaintId, createdAt])
+  @@map("complaint_messages")
+}
+
+model Subscription {
+  id           String        @id @default(uuid())
+  userId       String
+  adId         String
+  startDate    DateTime      @default(now())
+  endDate      DateTime
+  isRenewed    Boolean       @default(false)
+  isActive     Boolean       @default(true)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  ad           Ad            @relation(fields: [adId], references: [id])
+  user         User          @relation(fields: [userId], references: [id])
+  transactions Transaction[]
+  transfers    Transfer[]
+
+  @@index([isActive, endDate])
+  @@index([createdAt(sort: Desc)])
+  @@index([userId, isActive])
+  @@map("subscriptions")
+}
+
+model Transaction {
+  id              String            @id @default(uuid())
+  userId          String
+  subscriptionId  String?
+  bookingId       String?
+  adId            String?
+  amount          Decimal
+  currency        String            @default("INR")
+  status          TransactionStatus @default(PENDING)
+  paymentProvider PaymentProvider
+  paymentIntentId String?
+  paymentMethod   String?           @db.VarChar(50)
+  description     String?
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  subscription    Subscription?     @relation(fields: [subscriptionId], references: [id])
+  booking         Booking?          @relation(fields: [bookingId], references: [id])
+  user            User              @relation(fields: [userId], references: [id])
+
+  @@index([status, createdAt(sort: Desc)])
+  @@index([userId, createdAt(sort: Desc)])
+  @@index([subscriptionId])
+  @@index([bookingId])
+  @@index([paymentProvider, status])
+  @@map("transactions")
+}
+
+model Notification {
+  id          String           @id @default(uuid())
+  userId      String
+  title       String
+  message     String
+  type        NotificationType
+  isRead      Boolean          @default(false)
+  data        Json?
+  sentAt      DateTime         @default(now())
+  scheduledAt DateTime?
+  user        User             @relation(fields: [userId], references: [id])
+
+  @@index([isRead, sentAt(sort: Desc)])
+  @@index([userId, isRead])
+  @@map("notifications")
+}
+
+model Wishlist {
+  id        String   @id @default(uuid())
+  userId    String
+  adId      String
+  createdAt DateTime @default(now())
+  ad        Ad       @relation(fields: [adId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@unique([userId, adId])
+  @@index([userId])
+  @@index([adId])
+  @@map("wishlists")
+}
+
+model PushToken {
+  id        String   @id @default(uuid())
+  userId    String
+  token     String   @unique
+  platform  String // 'web', 'android', 'ios'
+  device    String? // device name/info
+  isActive  Boolean  @default(true)
+  lastUsed  DateTime @default(now())
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([token])
+  @@map("push_tokens")
+}
+
+model Otp {
+  id        String   @id @default(uuid())
+  phone     String
+  code      String
+  type      String
+  isUsed    Boolean  @default(false)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@map("otps")
+}
+
+model Setting {
+  id    String @id @default(uuid())
+  key   String @unique
+  value Json
+
+  @@map("settings")
+}
+
+model FaqCategory {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  slug        String   @unique
+  description String?
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  faqs        Faq[]
+
+  @@map("faq_categories")
+}
+
+model Faq {
+  id         String       @id @default(uuid())
+  question   String
+  answer     String
+  order      Int          @default(0)
+  isActive   Boolean      @default(true)
+  categoryId String?
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+  category   FaqCategory? @relation(fields: [categoryId], references: [id])
+
+  @@map("faqs")
+}
+
+model LandingPage {
+  id         String   @id @default(uuid())
+  sectionKey String   @unique
+  config     Json
+  isActive   Boolean  @default(true)
+  updatedAt  DateTime @updatedAt
+
+  @@map("landing_page")
+}
+
+model LegalDocument {
+  id          String   @id @default(uuid())
+  title       String
+  slug        String   @unique
+  content     String
+  isActive    Boolean  @default(true)
+  publishedAt DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("legal_documents")
+}
+
+model RecentLocation {
+  id                String      @id @default(uuid())
+  userId            String
+  name              String
+  address           String?
+  latitude          Float?
+  longitude         Float?
+  country           String      @default("India")
+  stateId           String?
+  cityId            String?
+  postalCodeId      String?
+  isCurrentLocation Boolean     @default(false)
+  usageCount        Int         @default(1)
+  lastUsed          DateTime    @default(now())
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+  city              City?       @relation("RecentLocationCity", fields: [cityId], references: [id])
+  postalCode        PostalCode? @relation("RecentLocationPostalCode", fields: [postalCodeId], references: [id])
+  state             State?      @relation("RecentLocationState", fields: [stateId], references: [id])
+  user              User        @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([userId, name, latitude, longitude])
+  @@index([stateId])
+  @@index([cityId])
+  @@index([postalCodeId])
+  @@map("recent_locations")
+}
+
+model BlogCategory {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  slug        String   @unique
+  description String?
+  isActive    Boolean  @default(true)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  blogs       Blog[]
+
+  @@map("news_categories")
+}
+
+model Blog {
+  id          String        @id @default(uuid())
+  title       String
+  slug        String        @unique
+  content     String
+  excerpt     String?
+  imageUrl    String?
+  isActive    Boolean       @default(true)
+  isFeatured  Boolean       @default(false)
+  publishedAt DateTime      @default(now())
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  authorId    String?
+  categoryId  String?
+  author      User?         @relation(fields: [authorId], references: [id])
+  category    BlogCategory? @relation(fields: [categoryId], references: [id])
+
+  @@map("news")
+}
+
+model State {
+  id                   String           @id @default(uuid())
+  name                 String           @unique
+  code                 String?          @unique
+  isActive             Boolean          @default(true)
+  createdAt            DateTime         @default(now())
+  updatedAt            DateTime         @updatedAt
+  cities               City[]
+  locations            Location[]
+  profileStates        Profile[]        @relation("ProfileState")
+  recentLocationStates RecentLocation[] @relation("RecentLocationState")
+
+  @@map("states")
+}
+
+model City {
+  id                   String           @id @default(uuid())
+  name                 String
+  code                 String?
+  stateId              String
+  isActive             Boolean          @default(true)
+  createdAt            DateTime         @default(now())
+  updatedAt            DateTime         @updatedAt
+  state                State            @relation(fields: [stateId], references: [id])
+  locations            Location[]
+  postalCodes          PostalCode[]
+  profileCities        Profile[]        @relation("ProfileCity")
+  recentLocationCities RecentLocation[] @relation("RecentLocationCity")
+
+  @@unique([name, stateId])
+  @@index([stateId])
+  @@map("cities")
+}
+
+model PostalCode {
+  id                        String           @id @default(uuid())
+  code                      String
+  cityId                    String
+  isActive                  Boolean          @default(true)
+  createdAt                 DateTime         @default(now())
+  updatedAt                 DateTime         @updatedAt
+  locations                 Location[]
+  city                      City             @relation(fields: [cityId], references: [id])
+  profilePostalCodes        Profile[]        @relation("ProfilePostalCode")
+  recentLocationPostalCodes RecentLocation[] @relation("RecentLocationPostalCode")
+
+  @@unique([code, cityId])
+  @@index([cityId])
+  @@index([code])
+  @@map("postal_codes")
+}
+
+model ModerationHistory {
+  id          String   @id @default(uuid())
+  adId        String
+  moderatorId String
+  action      String
+  reason      String?
+  createdAt   DateTime @default(now())
+  ad          Ad       @relation(fields: [adId], references: [id], onDelete: Cascade)
+  moderator   User     @relation("ModeratorHistory", fields: [moderatorId], references: [id])
+
+  @@map("moderation_history")
+}
+
+enum UserRole {
+  ADMIN
+  USER
+}
+
+enum AdStatus {
+  REVIEW
+  APPROVED
+  REJECTED
+  EXPIRED
+  UNPUBLISHED
+}
+
+enum BookingType {
+  DEFAULT
+  SLOTS
+}
+
+enum TransactionStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+enum PaymentProvider {
+  RAZORPAY
+  STRIPE
+}
+
+enum NotificationType {
+  SUBSCRIPTION_EXPIRY
+  AD_APPROVED
+  AD_REJECTED
+  AD_REVIEW
+  AD_EXTENDED
+  AD_EXPIRED
+  GENERAL
+  BOOKING_UPDATE
+  SYSTEM
+  BOOKING
+  PROMOTION
+  ADMIN_ALERT
+  COMPLAINT
+  COMPLAINT_UPDATE
+  PAYMENT
+  CHAT
+}
+
+enum BookingStatus {
+  SUBMITTED
+  CONFIRMED
+  CANCELLED
+  REJECTED
+  COMPLETED
+  CANCELLATION_REQUESTED
+}
+
+enum ComplaintStatus {
+  OPEN
+  INVESTIGATING
+  RESOLVED
+  REJECTED
+}
+
+enum ComplaintMessageSenderType {
+  REPORTER
+  RESPONDENT
+  ADMIN
+}
+
+model Transfer {
+  id             String         @id @default(uuid())
+  fromUserId     String? // null = platform/system
+  toUserId       String? // null = platform/system
+  transactionId  String? // Link to original transaction
+  bookingId      String? // Optional: link to booking
+  subscriptionId String? // Optional: link to subscription
+  adId           String? // Optional: link to ad
+  amount         Decimal        @db.Decimal(10, 2)
+  currency       String         @default("INR")
+  status         TransferStatus @default(PENDING)
+  transferType   TransferType
+  description    String?
+  notes          String? // Admin notes
+  processedAt    DateTime? // When marked as completed/cancelled
+  processedBy    String? // Admin user ID who processed
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  fromUser        User?         @relation("TransferFrom", fields: [fromUserId], references: [id])
+  toUser          User?         @relation("TransferTo", fields: [toUserId], references: [id])
+  booking         Booking?      @relation(fields: [bookingId], references: [id])
+  subscription    Subscription? @relation(fields: [subscriptionId], references: [id])
+  ad              Ad?           @relation(fields: [adId], references: [id])
+  processedByUser User?         @relation("TransferProcessor", fields: [processedBy], references: [id])
+
+  @@index([status])
+  @@index([transferType])
+  @@index([createdAt])
+  @@map("transfers")
+}
+
+enum TransferStatus {
+  PENDING
+  COMPLETED
+  CANCELLED
+}
+
+enum TransferType {
+  BOOKING_REFUND // Refund to buyer
+  BOOKING_PAYMENT_TO_SELLER // Payment to seller for completed booking
+  SUBSCRIPTION_REFUND // Subscription refund
+  SUBSCRIPTION_PAYOUT // Subscription payout
+  AD_PAYMENT // Ad-related payment/refund
+  OTHER // Other manual transfers
+}
+
+// ── SMS outbox ─────────────────────────────────────────────────────
+// Durable record of every SMS we want to send. Replaces the previous
+// fire-and-forget pattern where a network blip during the provider
+// HTTP call lost the message entirely. The outbox survives Redis
+// outages (Postgres is the source of truth) and is drained by the
+// `sms-outbox-drain` Bull cron job.
+model OutgoingSms {
+  id               String            @id @default(uuid())
+  to               String // E.164 or local phone, digits-only after normalize
+  message          String
+  templateId       String?
+  kind             String            @default("notification") // 'notification' | 'otp' | 'admin-test'
+  status           OutgoingSmsStatus @default(PENDING)
+  retryCount       Int               @default(0)
+  maxAttempts      Int               @default(6)
+  nextRetryAt      DateTime          @default(now())
+  lastError        String?
+  providerResponse Json?
+  /// Ops metadata for admin monitoring (adId, reminderDays, label, etc.)
+  meta             Json?
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  sentAt           DateTime?
+
+  @@index([status, nextRetryAt])
+  @@index([kind, status])
+  @@index([status, createdAt(sort: Desc)])
+  @@map("outgoing_sms")
+}
+
+enum OutgoingSmsStatus {
+  PENDING
+  SENT
+  FAILED // permanently failed (max attempts exhausted)
+  DEAD // reserved for future manual-rejection flow
+}
+
+model PlatformAd {
+  id          String             @id @default(uuid())
+  title       String?
+  description String?
+  imageUrl    String
+  linkUrl     String?
+  position    PlatformAdPosition @default(LEFT)
+  type        String             @default("IMAGE") // IMAGE, VIDEO, etc.
+  isActive    Boolean            @default(true)
+  order       Int                @default(0)
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+
+  @@map("platform_ads")
+}
+
+enum PlatformAdPosition {
+  LEFT
+  RIGHT
+  TOP
+  BOTTOM
+  POPUP
+}

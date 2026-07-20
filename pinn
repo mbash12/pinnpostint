@@ -1,0 +1,1142 @@
+#!/bin/bash
+
+# PinNPost Centralized CLI Helper
+# Usage: ./pinn [command] [options]
+
+# Capture the absolute path to the project root at startup
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+set -e
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Config
+COMPOSE_FILE="docker/docker-compose.yml"
+ENV_FILE=".env"
+APPS=("api" "admin" "mobile")
+
+# Keys compose interpolates from the shell (env_file alone is NOT enough).
+COMPOSE_EXPORT_KEYS=(
+  POSTGRES_USER POSTGRES_PASSWORD POSTGRES_DB
+  REDIS_PASSWORD
+  API_PORT ADMIN_PORT MOBILE_PORT
+  NEXT_PUBLIC_API_URL
+)
+
+# Global flag for local development
+LOCAL_MODE=false
+
+# Helper functions
+log_info() { echo -e "${BLUE}[INFO]${NC} $1"; }
+log_success() { echo -e "${GREEN}[OK]${NC} $1"; }
+log_warn() { echo -e "${YELLOW}[WARN]${NC} $1"; }
+log_error() { echo -e "${RED}[ERROR]${NC} $1"; }
+
+check_docker() {
+    if ! command -v docker &> /dev/null; then
+        log_error "Docker not found. Please install Docker first."
+        exit 1
+    fi
+    if ! command -v docker compose &> /dev/null; then
+        log_error "Docker Compose not found. Please install Docker Compose."
+        exit 1
+    fi
+}
+
+# Export a single KEY=value from a dotenv file without sourcing the whole file.
+export_env_key_from_file() {
+    local file="$1" key="$2" line val
+    [ -f "$file" ] || return 0
+    line="$(grep -E "^${key}=" "$file" | tail -1 || true)"
+    [ -n "$line" ] || return 0
+    val="${line#*=}"
+    export "${key}=${val}"
+}
+
+# Load root .env (+ optional .env.local) for compose interpolation only.
+load_compose_env() {
+    local skip_local="${1:-false}"
+    local key
+    for key in "${COMPOSE_EXPORT_KEYS[@]}"; do
+        export_env_key_from_file "$PROJECT_ROOT/.env" "$key"
+    done
+    if [ "$skip_local" != "true" ] && [ -f "$PROJECT_ROOT/.env.local" ]; then
+        for key in "${COMPOSE_EXPORT_KEYS[@]}"; do
+            export_env_key_from_file "$PROJECT_ROOT/.env.local" "$key"
+        done
+    fi
+}
+
+cd_project_root() {
+    cd "$PROJECT_ROOT"
+    if [ "$LOCAL_MODE" = true ]; then
+        load_compose_env
+    else
+        load_compose_env true
+    fi
+}
+
+cmd_env_sync() {
+    cd "$PROJECT_ROOT"
+    if [ "${1:-}" = "--production" ]; then
+        log_info "Syncing per-app .env from root (production)..."
+        node scripts/env-sync.js --production
+    else
+        log_info "Syncing per-app .env + .env.local from root..."
+        node scripts/env-sync.js
+    fi
+    log_success "Env sync complete"
+}
+
+cmd_env_check() {
+    cd "$PROJECT_ROOT"
+    node scripts/env-sync.js --check
+}
+
+# ==================== BUILD COMMANDS ====================
+
+_cmd_build_one() {
+    local app=$1
+    case $app in
+        api)
+            log_info "Building API..."
+            cd api
+            if [ ! -d "node_modules" ]; then
+                sed -i 's/"prepare": "husky install"/"prepare": ""/g' package.json
+                npm install
+                sed -i 's/"prepare": ""/"prepare": "husky install"/g' package.json
+            fi
+            npx prisma generate
+            npm run build
+            cd ..
+            log_success "API build complete. Output: api/dist/"
+            ;;
+        admin)
+            log_info "Building Admin..."
+            cd admin
+            if [ ! -d "node_modules" ]; then
+                sed -i 's/"prepare": "husky install"/"prepare": ""/g' package.json 2>/dev/null || true
+                npm install
+                sed -i 's/"prepare": ""/"prepare": "husky install"/g' package.json 2>/dev/null || true
+            fi
+            rm -rf .next
+            # Next loads admin/.env (+ .env.local); we do not use .env.production
+            NODE_ENV=production npm run build
+            cd ..
+            log_success "Admin build complete. Output: admin/.next/"
+            ;;
+        mobile)
+            log_info "Building Mobile (Expo Web)..."
+            cd mobile
+            if [ ! -d "node_modules" ]; then
+                sed -i 's/"prepare": "husky install"/"prepare": ""/g' package.json 2>/dev/null || true
+                npm install
+                sed -i 's/"prepare": ""/"prepare": "husky install"/g' package.json 2>/dev/null || true
+            fi
+            set -a
+            # shellcheck disable=SC1091
+            # dotenv.parse handles spaces, =, and unquoted values safely.
+            source <(node -e "
+              const fs = require('fs');
+              const dotenv = require('dotenv');
+              function load(p) { return fs.existsSync(p) ? dotenv.parse(fs.readFileSync(p)) : {}; }
+              const env = { ...load('.env'), ...load('.env.local') };
+              for (const [k, v] of Object.entries(env)) {
+                console.log('export -- ' + JSON.stringify(k) + '=' + JSON.stringify(v));
+              }
+            ")
+            set +a
+            rm -rf .expo web-build dist node_modules/.cache 2>/dev/null || true
+            npx expo export --platform web --clear
+            cp firebase-messaging-sw.js dist/ 2>/dev/null || true
+            cp firebase-messaging-sw.js dist/_expo/static/ 2>/dev/null || true
+            cd ..
+            log_success "Mobile build complete. Output: mobile/dist/"
+            ;;
+    esac
+}
+
+cmd_build() {
+    local app=$1
+    cd_project_root
+    if [ "$LOCAL_MODE" = true ]; then
+        cmd_env_sync
+    else
+        cmd_env_sync --production
+    fi
+    case $app in
+        all)
+            log_info "Building all apps..."
+            for a in "${APPS[@]}"; do
+                _cmd_build_one "$a"
+            done
+            log_success "All builds complete!"
+            ;;
+        api|admin|mobile)
+            _cmd_build_one "$app"
+            ;;
+        *)
+            log_error "Unknown app: $app"
+            log_info "Available: api, admin, mobile, all"
+            exit 1
+            ;;
+    esac
+}
+
+cmd_build_watch() {
+    local app=$1
+    cd_project_root
+    
+    log_info "Starting watch mode for $app..."
+    case $app in
+        api)
+            cd api && npx nodemon --exec "npm run build && docker compose -f ../$COMPOSE_FILE restart api" --watch src --ext ts
+            ;;
+        admin)
+            cd admin && npx chokidar "src/**/*" -c "npm run build && docker compose -f ../$COMPOSE_FILE restart admin"
+            ;;
+        *)
+            log_error "Watch mode only available for api and admin"
+            exit 1
+            ;;
+    esac
+}
+
+# ==================== DOCKER COMMANDS ====================
+
+cmd_up() {
+    cd_project_root
+    if [ "$LOCAL_MODE" = true ]; then
+        cmd_env_sync
+    else
+        cmd_env_sync --production
+    fi
+    log_info "Starting all services..."
+    docker compose -f "$COMPOSE_FILE" up -d
+    log_success "Services started!"
+    cmd_status
+}
+
+cmd_down() {
+    cd_project_root
+    log_info "Stopping all services..."
+    docker compose -f "$COMPOSE_FILE" down
+    log_success "Services stopped!"
+}
+
+cmd_restart() {
+    local service=$1
+    cd_project_root
+
+    if [ -z "$service" ]; then
+        log_info "Restarting all services..."
+        docker compose -f "$COMPOSE_FILE" restart
+    else
+        log_info "Restarting service: $service"
+        docker compose -f "$COMPOSE_FILE" restart "$service"
+    fi
+    log_success "Restart complete!"
+}
+
+cmd_recreate() {
+    local service=$1
+    cd_project_root
+    if [ "$LOCAL_MODE" = true ]; then
+        cmd_env_sync
+    else
+        cmd_env_sync --production
+    fi
+
+    if [ -z "$service" ]; then
+        log_info "Force recreating all services (this will reload environment variables)..."
+        docker compose -f "$COMPOSE_FILE" up -d --force-recreate
+    else
+        log_info "Force recreating service: $service (this will reload environment variables)..."
+        docker compose -f "$COMPOSE_FILE" up -d --force-recreate --no-deps "$service"
+    fi
+    log_success "Recreate complete! Environment variables have been reloaded."
+    cmd_status
+}
+
+# Heal: hard-rebuild a container's writable layer. Use when a container is
+# stuck with "exec /usr/local/bin/docker-entrypoint.sh: permission denied",
+# "OCI runtime create failed", or any crash loop that `restart` won't fix.
+cmd_heal() {
+    local service=$1
+    cd_project_root
+
+    if [ -z "$service" ]; then
+        log_warn "This will remove and recreate ALL containers (fresh overlay layers)."
+        read -p "Are you sure? (yes/no): " confirm
+        [ "$confirm" = "yes" ] || { log_info "Cancelled."; return 0; }
+        log_info "Healing all services..."
+        docker compose -f "$COMPOSE_FILE" rm -sf
+        docker compose -f "$COMPOSE_FILE" up -d
+    else
+        log_info "Healing $service (rm -sf + pull + up -d)..."
+        # Try to pull the image first in case a local copy is corrupted.
+        local image
+        image=$(docker compose -f "$COMPOSE_FILE" config --images "$service" 2>/dev/null | head -1)
+        if [ -n "$image" ]; then
+            log_info "Pulling $image ..."
+            docker pull "$image" >/dev/null 2>&1 || log_warn "Pull failed (offline?), continuing anyway"
+        fi
+        docker compose -f "$COMPOSE_FILE" rm -sf "$service"
+        # --no-deps: allow healing api even if db is temporarily unhealthy
+        docker compose -f "$COMPOSE_FILE" up -d --no-deps "$service"
+    fi
+    log_success "Heal complete!"
+    cmd_status
+}
+
+cmd_logs() {
+    local service=$1
+    cd_project_root
+    
+    if [ -z "$service" ]; then
+        docker compose -f "$COMPOSE_FILE" logs -f
+    else
+        docker compose -f "$COMPOSE_FILE" logs -f "$service"
+    fi
+}
+
+cmd_status() {
+    cd_project_root
+    log_info "Service Status:"
+    docker compose -f "$COMPOSE_FILE" ps
+}
+
+cmd_shell() {
+    local service=$1
+    cd_project_root
+    
+    if [ -z "$service" ]; then
+        log_error "Please specify a service (api, admin, mobile, db, redis)"
+        exit 1
+    fi
+    
+    log_info "Opening shell in $service..."
+    docker compose -f "$COMPOSE_FILE" exec "$service" sh
+}
+
+# ==================== DATABASE COMMANDS ====================
+
+cmd_db_migrate() {
+    cd_project_root
+    log_info "Running Prisma migrations..."
+    # Run from host machine (prisma needs write access to migrations folder)
+    cd api
+    DATABASE_URL="postgresql://${POSTGRES_USER:-demo}:${POSTGRES_PASSWORD:-demo}@localhost:5432/${POSTGRES_DB:-pinpost}" npx prisma migrate dev
+    cd ..
+    log_success "Migration complete!"
+}
+
+cmd_db_migrate_deploy() {
+    cd_project_root
+    log_info "Deploying migrations (production)..."
+    # Run from host machine
+    cd api
+    DATABASE_URL="postgresql://${POSTGRES_USER:-demo}:${POSTGRES_PASSWORD:-demo}@localhost:5432/${POSTGRES_DB:-pinpost}" npx prisma migrate deploy
+    cd ..
+    log_success "Migration deployed!"
+}
+
+cmd_db_generate() {
+    cd_project_root
+    log_info "Generating Prisma client..."
+    cd api
+    npx prisma generate
+    cd ..
+    log_success "Prisma client generated!"
+}
+
+cmd_db_seed() {
+    cd_project_root
+    log_info "Building seed file..."
+    cd api
+    npm run db:seed:build
+    cd ..
+    log_info "Seeding database..."
+    # Run compiled seed.js inside Docker container
+    docker compose -f "$COMPOSE_FILE" exec api node dist/seed.js
+    log_success "Database seeded!"
+}
+
+cmd_db_studio() {
+    cd_project_root
+    log_info "Opening Prisma Studio..."
+    cd api
+    # Studio runs on host since it's a UI tool
+    DATABASE_URL="postgresql://demo:demo@localhost:5432/pinpost" npx prisma studio &
+    cd ..
+}
+
+cmd_db_reset() {
+    cd_project_root
+    log_warn "⚠️  This will DELETE all data and re-run migrations!"
+    read -p "Are you sure? (yes/no): " confirm
+    if [ "$confirm" = "yes" ]; then
+        docker compose -f "$COMPOSE_FILE" exec api npx prisma migrate reset --force
+        log_success "Database reset complete!"
+    else
+        log_info "Cancelled."
+    fi
+}
+
+cmd_db_backup() {
+    cd_project_root
+    log_info "Running database backup..."
+    bash scripts/backup-db.sh
+}
+
+cmd_db_backup_list() {
+    cd_project_root
+    echo "=== Database backups ==="
+    ls -lh backups/pinpost_*.sql.gz 2>/dev/null || echo "  (none)"
+    echo ""
+    echo "=== Uploads backups ==="
+    ls -lh backups/uploads_*.tar.gz 2>/dev/null || echo "  (none)"
+}
+
+cmd_db_restore() {
+    local backup_file=$1
+    cd_project_root
+    
+    if [ -z "$backup_file" ]; then
+        log_error "Please specify backup file"
+        log_info "Usage: ./pinn db:restore backups/pinpost_YYYY-MM-DD_HH-MM-SS.sql.gz"
+        exit 1
+    fi
+    
+    if [ ! -f "$backup_file" ]; then
+        log_error "File not found: $backup_file"
+        log_info "Run './pinn db:backup:list' to see available backups"
+        exit 1
+    fi
+    
+    log_warn "⚠️  This will REPLACE current database!"
+    read -p "Are you sure? (yes/no): " confirm
+    if [ "$confirm" = "yes" ]; then
+        source .env 2>/dev/null || true
+        DB_USER=${POSTGRES_USER:-demo}
+        DB_NAME=${POSTGRES_DB:-pinpost}
+        
+        if [[ "$backup_file" == *.gz ]]; then
+            gunzip -c "$backup_file" | docker compose -f "$COMPOSE_FILE" exec -T db psql -U "$DB_USER" -d "$DB_NAME"
+        else
+            docker compose -f "$COMPOSE_FILE" exec -T db psql -U "$DB_USER" -d "$DB_NAME" < "$backup_file"
+        fi
+        log_success "Database restored from $backup_file"
+    fi
+}
+
+cmd_uploads_backup() {
+    cd_project_root
+    local DATE=$(date +%Y-%m-%d_%H-%M-%S)
+    local UPLOADS_FILE="backups/uploads_${DATE}.tar.gz"
+    
+    if [ ! -d "api/uploads" ]; then
+        log_error "uploads directory not found at api/uploads"
+        exit 1
+    fi
+    
+    log_info "Backing up uploads..."
+    tar -czf "$UPLOADS_FILE" -C api uploads
+    log_success "Uploads backup saved: $(du -h "$UPLOADS_FILE" | cut -f1)"
+}
+
+cmd_uploads_restore() {
+    local backup_file=$1
+    cd_project_root
+    
+    if [ -z "$backup_file" ]; then
+        log_error "Please specify backup file"
+        log_info "Usage: ./pinn uploads:restore backups/uploads_YYYY-MM-DD_HH-MM-SS.tar.gz"
+        exit 1
+    fi
+    
+    if [ ! -f "$backup_file" ]; then
+        log_error "File not found: $backup_file"
+        log_info "Run './pinn db:backup:list' to see available backups"
+        exit 1
+    fi
+    
+    log_warn "⚠️  This will REPLACE current uploads!"
+    read -p "Are you sure? (yes/no): " confirm
+    if [ "$confirm" = "yes" ]; then
+        log_info "Restoring uploads from $backup_file..."
+        tar -xzf "$backup_file" -C .
+        log_success "Uploads restored from $backup_file"
+    fi
+}
+
+cmd_backup_verify() {
+    cd_project_root
+    log_info "Verifying latest backup restores cleanly (uses a throwaway container, never touches live data)…"
+    bash scripts/backup-verify.sh
+    log_success "Backup verified."
+}
+
+cmd_sms_catchup() {
+    # Queue any due pre-expiry SMS for specific ads (or auto-detect),
+    # bypassing the morning/afternoon cron time-gate. Useful right after
+    # a scheduler outage so today's missed tier doesn't wait until tomorrow.
+    cd_project_root
+    if [ "$#" -eq 0 ]; then
+        log_info "Auto-detecting APPROVED/REVIEW ads missing due pre-expiry tiers…"
+        docker exec pinn-api node /app/scripts/catchup-pre-expiry.js --auto
+    else
+        log_info "Queueing catch-up for adId(s): $*"
+        docker exec pinn-api node /app/scripts/catchup-pre-expiry.js "$@"
+    fi
+}
+
+cmd_backup_schedule() {
+    cd_project_root
+    chmod +x scripts/backup-db.sh scripts/backup-verify.sh
+    log_info "Installing daily backup cron job (2:00 AM backup, then verify)…"
+    local line="0 2 * * * cd ${PROJECT_ROOT} && bash scripts/backup-db.sh >> backups/backup.log 2>&1 && bash scripts/backup-verify.sh >> backups/backup.log 2>&1"
+    # NOTE: `grep -v ... || true` is critical — under `set -e`, grep returns 1
+    # when every line matches and is filtered out, which would kill the
+    # subshell before `echo` and install an EMPTY crontab (the bug that
+    # silently stopped backups for months).
+    { crontab -l 2>/dev/null | grep -v 'backup-db.sh' || true; echo "${line}"; } | crontab -
+    log_success "Cron job installed. Logs will write to backups/backup.log"
+    log_info "Run 'crontab -l' to verify."
+}
+
+cmd_backup_unschedule() {
+    cd_project_root
+    log_info "Removing backup cron job…"
+    # Same set -e / grep -v guard as cmd_backup_schedule.
+    { crontab -l 2>/dev/null | grep -v 'backup-db.sh' || true; } | crontab -
+    log_success "Backup cron job removed."
+}
+
+# ==================== SSL / CERTBOT COMMANDS ====================
+
+cmd_ssl_generate() {
+    local domain=$1
+    local email=$2
+    
+    cd_project_root
+    
+    # Load ONLY .env (skip .env.local) to get production domains
+    if [ -f ".env" ]; then
+        unset API_DOMAIN SSL_EMAIL SMTP_USER
+        export $(grep -v '^#' .env | xargs)
+    fi
+    
+    # Load domains and email from .env if not provided as arguments
+    if [ -z "$domain" ]; then
+        domain="${API_DOMAIN:-}"
+        if [ -z "$domain" ]; then
+            log_error "API_DOMAIN not set in .env and no domain provided"
+            log_info "Usage: ./pinn ssl:generate [domain] [email]"
+            exit 1
+        fi
+    fi
+    
+    if [ -z "$email" ]; then
+        email="${SSL_EMAIL:-${SMTP_USER:-}}"
+        if [ -z "$email" ]; then
+            log_error "SSL_EMAIL not set in .env and no email provided"
+            log_info "Usage: ./pinn ssl:generate [domain] [email]"
+            exit 1
+        fi
+    fi
+    
+    log_info "Generating SSL certificate for $domain (email: $email)..."
+    
+    # Create certbot directories
+    mkdir -p docker/certbot/conf docker/certbot/www
+    
+    # Stop nginx to free port 80
+    log_info "Stopping nginx to free port 80..."
+    docker compose -f "$COMPOSE_FILE" stop nginx 2>/dev/null || true
+    
+    # Run certbot with port 80 exposed
+    docker run -it --rm \
+        -p 80:80 \
+        -v "$(pwd)/docker/certbot/conf:/etc/letsencrypt" \
+        -v "$(pwd)/docker/certbot/www:/var/www/certbot" \
+        certbot/certbot certonly \
+        --standalone \
+        --preferred-challenges http \
+        -d "$domain" \
+        --agree-tos \
+        -m "$email" \
+        --no-eff-email
+    
+    log_success "SSL certificate generated!"
+    log_info "Location: docker/certbot/conf/live/$domain/"
+    
+    # Restart nginx
+    log_info "Restarting nginx..."
+    docker compose -f "$COMPOSE_FILE" up -d nginx
+}
+
+cmd_ssl_generate_all() {
+    cd_project_root
+    
+    # Load ONLY .env (skip .env.local) to get production domains
+    if [ -f ".env" ]; then
+        unset API_DOMAIN ADMIN_DOMAIN MOBILE_DOMAIN SSL_EMAIL SMTP_USER
+        export $(grep -v '^#' .env | xargs)
+    fi
+    
+    local email="${SSL_EMAIL:-${SMTP_USER:-}}"
+    if [ -z "$email" ]; then
+        log_error "SSL_EMAIL not set in .env"
+        exit 1
+    fi
+    
+    # Build domain list from .env
+    local domains=()
+    [ -n "$API_DOMAIN" ] && domains+=("$API_DOMAIN")
+    [ -n "$ADMIN_DOMAIN" ] && domains+=("$ADMIN_DOMAIN")
+    [ -n "$MOBILE_DOMAIN" ] && domains+=("$MOBILE_DOMAIN")
+    
+    if [ ${#domains[@]} -eq 0 ]; then
+        log_error "No domains configured in .env (API_DOMAIN, ADMIN_DOMAIN, MOBILE_DOMAIN)"
+        exit 1
+    fi
+    
+    log_info "Generating SSL certificates for each domain: ${domains[*]}"
+    
+    # Create certbot directories
+    mkdir -p docker/certbot/conf docker/certbot/www
+    
+    # Stop nginx to free port 80
+    log_info "Stopping nginx to free port 80..."
+    docker compose -f "$COMPOSE_FILE" stop nginx 2>/dev/null || true
+    
+    # Generate certificate for EACH domain separately
+    for domain in "${domains[@]}"; do
+        log_info "Generating certificate for: $domain"
+        
+        docker run -it --rm \
+            -p 80:80 \
+            -v "$(pwd)/docker/certbot/conf:/etc/letsencrypt" \
+            -v "$(pwd)/docker/certbot/www:/var/www/certbot" \
+            certbot/certbot certonly \
+            --standalone \
+            --preferred-challenges http \
+            -d "$domain" \
+            --agree-tos \
+            -m "$email" \
+            --no-eff-email
+        
+        if [ $? -eq 0 ]; then
+            log_success "Certificate generated for: $domain"
+        else
+            log_error "Failed to generate certificate for: $domain"
+        fi
+    done
+    
+    log_success "SSL certificate generation complete!"
+    log_info "Location: docker/certbot/conf/live/"
+    
+    # Restart nginx
+    log_info "Restarting nginx..."
+    docker compose -f "$COMPOSE_FILE" up -d nginx
+}
+
+cmd_ssl_renew() {
+    cd_project_root
+    log_info "Renewing SSL certificates..."
+    
+    docker run -it --rm \
+        -v "$(pwd)/docker/certbot/conf:/etc/letsencrypt" \
+        -v "$(pwd)/docker/certbot/www:/var/www/certbot" \
+        certbot/certbot renew
+    
+    log_success "SSL certificates renewed!"
+    cmd_restart nginx 2>/dev/null || true
+}
+
+cmd_ssl_test() {
+    local domain=$1
+    if [ -z "$domain" ]; then
+        log_error "Please specify domain"
+        exit 1
+    fi
+    
+    log_info "Testing SSL for $domain..."
+    echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -dates -subject
+}
+
+# ==================== DEPLOY COMMANDS ====================
+
+cmd_deploy() {
+    log_info "🚀 Starting deployment..."
+    if [ "$LOCAL_MODE" = true ]; then
+        log_info "Mode: LOCAL (using .env.development)"
+    else
+        log_info "Mode: PRODUCTION"
+    fi
+    
+    # 1. Build all
+    cmd_build all
+    
+    # 2. Run migrations (skip for local if db not ready)
+    if [ "$LOCAL_MODE" = false ]; then
+        cmd_db_migrate_deploy
+    fi
+    
+    # 3. Recreate (not restart) — reloads .env and replaces container layers.
+    #    Volumes are untouched; this is the same class of fix as down/up without data loss.
+    cmd_recreate
+    
+    log_success "🎉 Deployment complete!"
+    cmd_status
+}
+
+cmd_deploy_app() {
+    local app=$1
+    log_info "🚀 Deploying $app..."
+    if [ "$LOCAL_MODE" = true ]; then
+        log_info "Mode: LOCAL (using .env.development)"
+    fi
+    
+    cmd_build "$app"
+    cmd_recreate "$app"
+    
+    log_success "🎉 $app deployed!"
+}
+
+# ==================== DOCTOR ====================
+
+cmd_doctor() {
+    cd_project_root
+    log_info "🩺 PinNPost doctor"
+    echo ""
+
+    echo "=== Containers ==="
+    docker compose -f "$COMPOSE_FILE" ps || true
+    echo ""
+
+    local unhealthy=0
+    local c
+    for c in pinn-db pinn-redis pinn-api pinn-admin pinn-mobile pinn-nginx; do
+        if ! docker inspect "$c" >/dev/null 2>&1; then
+            log_warn "$c: missing"
+            unhealthy=1
+            continue
+        fi
+        local state health
+        state=$(docker inspect -f '{{.State.Status}}' "$c" 2>/dev/null || echo unknown)
+        health=$(docker inspect -f '{{if .State.Health}}{{.State.Health.Status}}{{else}}n/a{{end}}' "$c" 2>/dev/null || echo n/a)
+        if [ "$state" != "running" ] || [ "$health" = "unhealthy" ]; then
+            log_warn "$c: state=$state health=$health"
+            unhealthy=1
+        else
+            log_success "$c: state=$state health=$health"
+        fi
+    done
+    echo ""
+
+    echo "=== API readiness ==="
+    if docker compose -f "$COMPOSE_FILE" exec -T api wget -qO- "http://127.0.0.1:${API_PORT:-3001}/health/ready" 2>/dev/null; then
+        echo ""
+        log_success "API /health/ready OK"
+    else
+        echo ""
+        log_warn "API /health/ready failed (container down or DB unreachable)"
+        unhealthy=1
+    fi
+    echo ""
+
+    echo "=== Env ownership (quick) ==="
+    echo "  Docker runtime: root .env  (POSTGRES_HOST should be 'db', REDIS_HOST 'redis')"
+    echo "  Local API/admin/mobile: */.env.development"
+    echo "  Build-time public vars: admin|mobile .env.production"
+    if [ -f ".env" ]; then
+        local pg_host redis_host
+        pg_host=$(grep -E '^POSTGRES_HOST=' .env | cut -d= -f2- | tr -d '"' || true)
+        redis_host=$(grep -E '^REDIS_HOST=' .env | cut -d= -f2- | tr -d '"' || true)
+        echo "  Current POSTGRES_HOST=${pg_host:-unset}  REDIS_HOST=${redis_host:-unset}"
+        if [ -n "$pg_host" ] && [ "$pg_host" != "db" ]; then
+            log_warn "POSTGRES_HOST is '$pg_host' — Docker API expects 'db'"
+            unhealthy=1
+        fi
+    else
+        log_warn "No root .env found"
+        unhealthy=1
+    fi
+    echo ""
+
+    if [ "$unhealthy" -eq 0 ]; then
+        log_success "Looks healthy."
+    else
+        log_warn "Issues detected. Prefer volume-safe recovery:"
+        echo "  ./pinn heal db       # if DB unhealthy — heal foundations first"
+        echo "  ./pinn heal api      # or: ./pinn heal"
+        echo "  ./pinn recreate      # reload .env + fresh containers"
+        echo "  Avoid './pinn down' unless needed — heal/recreate is enough and keeps volumes."
+        echo "  Install auto-heal: sudo ./pinn watchdog:install"
+    fi
+}
+
+# ==================== SETUP COMMANDS ====================
+
+cmd_setup() {
+    cd_project_root
+    log_info "🛠️  Setting up PinNPost..."
+    
+    # Create necessary directories
+    mkdir -p api/dist admin/.next mobile/dist
+    mkdir -p uploads backups logs
+    
+    # Copy example env if not exists
+    if [ ! -f ".env" ]; then
+        if [ -f ".env.example" ]; then
+            cp .env.example .env
+            log_warn "Created .env from .env.example - please edit it!"
+        fi
+    fi
+    
+    # Install dependencies
+    log_info "Installing dependencies..."
+    (cd api && if [ ! -d "node_modules" ]; then sed -i 's/"prepare": "husky install"/"prepare": ""/g' package.json && npm install && sed -i 's/"prepare": ""/"prepare": "husky install"/g' package.json; fi && npx prisma generate)
+    (cd admin && if [ ! -d "node_modules" ]; then sed -i 's/"prepare": "husky install"/"prepare": ""/g' package.json && npm install && sed -i 's/"prepare": ""/"prepare": "husky install"/g' package.json; fi)
+    (cd mobile && if [ ! -d "node_modules" ]; then sed -i 's/"prepare": "husky install"/"prepare": ""/g' package.json && npm install && sed -i 's/"prepare": ""/"prepare": "husky install"/g' package.json; fi)
+    
+    # Generate Prisma client
+    cmd_db_generate
+    
+    log_success "✅ Setup complete!"
+    log_info "Next steps:"
+    log_info "  1. Edit .env file with your configuration"
+    log_info "  2. Run: ./pinn up"
+    log_info "  3. Run: ./pinn db:migrate"
+    log_info "  4. Run: ./pinn db:seed (optional)"
+}
+
+cmd_clean() {
+    cd_project_root
+    log_warn "⚠️  This stops containers AND deletes Docker volumes (DATABASE DATA LOSS)."
+    log_warn "    For stuck API without data loss use: ./pinn heal  or  ./pinn recreate"
+    read -p "Type 'delete-volumes' to confirm full clean: " confirm
+    if [ "$confirm" != "delete-volumes" ]; then
+        log_info "Cancelled."
+        return 0
+    fi
+    log_warn "🧹 Cleaning up..."
+    
+    # Stop containers + remove volumes (destructive — confirmed above)
+    docker compose -f "$COMPOSE_FILE" down -v 2>/dev/null || true
+    
+    # Clean build outputs
+    rm -rf api/dist admin/.next mobile/dist
+    rm -rf api/node_modules admin/node_modules mobile/node_modules
+    
+    # Docker cleanup
+    docker system prune -f
+    
+    log_success "Cleanup complete!"
+}
+
+# ==================== WATCHDOG COMMANDS ====================
+# A host-side watchdog that detects containers stuck in states Docker's own
+# `restart: unless-stopped` can't fix (corrupted overlay layer, OCI errors,
+# exec permission denied) and recreates them. See docker/container-watchdog.sh.
+
+WATCHDOG_SCRIPT="docker/container-watchdog.sh"
+WATCHDOG_INSTALLER="docker/install-watchdog.sh"
+WATCHDOG_LOG="/var/log/pinn-watchdog.log"
+WATCHDOG_UNIT="pinn-watchdog"
+
+_watchdog_need_root() {
+    if [ "$EUID" -ne 0 ]; then
+        log_error "This command must be run as root. Try: sudo ./pinn $*"
+        exit 1
+    fi
+}
+
+cmd_watchdog_install() {
+    cd_project_root
+    _watchdog_need_root "watchdog:install"
+    if [ ! -f "$WATCHDOG_INSTALLER" ]; then
+        log_error "Installer not found: $WATCHDOG_INSTALLER"
+        exit 1
+    fi
+    log_info "Installing container watchdog..."
+    bash "$WATCHDOG_INSTALLER"
+}
+
+cmd_watchdog_uninstall() {
+    cd_project_root
+    _watchdog_need_root "watchdog:uninstall"
+    log_info "Uninstalling container watchdog..."
+    bash "$WATCHDOG_INSTALLER" --uninstall
+}
+
+cmd_watchdog_run() {
+    cd_project_root
+    if [ ! -x "$WATCHDOG_SCRIPT" ]; then
+        chmod +x "$WATCHDOG_SCRIPT" 2>/dev/null || true
+    fi
+    log_info "Running watchdog once (may require sudo for full functionality)..."
+    bash "$WATCHDOG_SCRIPT"
+}
+
+cmd_watchdog_status() {
+    cd_project_root
+    if command -v systemctl &>/dev/null; then
+        echo "--- Timer ---"
+        systemctl status "${WATCHDOG_UNIT}.timer" --no-pager 2>/dev/null || log_warn "Timer not installed"
+        echo
+        echo "--- Last run ---"
+        systemctl status "${WATCHDOG_UNIT}.service" --no-pager 2>/dev/null | head -20
+        echo
+        echo "--- Next scheduled ---"
+        systemctl list-timers "${WATCHDOG_UNIT}.timer" --no-pager 2>/dev/null || true
+    else
+        log_warn "systemd not available; checking cron..."
+        crontab -l 2>/dev/null | grep container-watchdog.sh || log_warn "No cron entry found"
+    fi
+}
+
+cmd_watchdog_logs() {
+    cd_project_root
+    if [ -f "$WATCHDOG_LOG" ]; then
+        log_info "Tailing $WATCHDOG_LOG (Ctrl-C to stop)..."
+        tail -f "$WATCHDOG_LOG"
+    elif command -v journalctl &>/dev/null; then
+        log_info "Log file not found; following journalctl for ${WATCHDOG_UNIT}..."
+        journalctl -u "${WATCHDOG_UNIT}" -f
+    else
+        log_error "No watchdog log found and journalctl unavailable."
+        exit 1
+    fi
+}
+
+# ==================== ENV ENCRYPTION ====================
+
+cmd_env_encrypt() {
+    node scripts/env-crypto.js encrypt "$1" "$2"
+}
+
+cmd_env_decrypt() {
+    node scripts/env-crypto.js decrypt "$1" "$2"
+}
+
+# ==================== HELP ====================
+
+cmd_help() {
+    cat << 'EOF'
+╔══════════════════════════════════════════════════════════════════╗
+║                    PinNPost CLI Helper                           ║
+╠══════════════════════════════════════════════════════════════════╣
+║  USAGE: ./pinn [command] [options]                               ║
+╠══════════════════════════════════════════════════════════════════╣
+║                                                                  ║
+║  🏗️  BUILD COMMANDS                                              ║
+║  ─────────────────────────────────────────                       ║
+║  build [api|admin|mobile|all]     Build app(s) (production)      ║
+║  build [app] --local              Build with .env.local          ║
+║  build:watch [api|admin]          Build & watch for changes      ║
+║                                                                  ║
+║  🐳 DOCKER COMMANDS                                              ║
+║  ─────────────────────────────────────────                       ║
+║  up                               Start all services (production)║
+║  up --local                       Start with .env.local          ║
+║  down                             Stop all services              ║
+║  restart [service]                Restart service(s)             ║
+║  recreate [service]               Force recreate & reload env    ║
+║  heal [service]                   Hard-rebuild container layer   ║
+║  doctor                           Diagnose health + recovery     ║
+║  logs [service]                   View logs                      ║
+║  status                           Show service status            ║
+║  shell [service]                  Open shell in container        ║
+║                                                                  ║
+║  🩺 WATCHDOG (auto-recreate corrupt/unhealthy containers)        ║
+║  ─────────────────────────────────────────                       ║
+║  watchdog:install                 Install systemd timer (sudo)   ║
+║  watchdog:uninstall               Remove timer/cron (sudo)       ║
+║  watchdog:run                     Run one check now              ║
+║  watchdog:status                  Show timer + last run          ║
+║  watchdog:logs                    Tail watchdog log              ║
+║                                                                  ║
+║  🗄️  DATABASE COMMANDS                                           ║
+║  ─────────────────────────────────────────                       ║
+║  db:migrate                       Run migrations (dev)           ║
+║  db:migrate:deploy                Deploy migrations (prod)       ║
+║  db:generate                      Generate Prisma client         ║
+║  db:seed                          Seed database                  ║
+║  db:studio                        Open Prisma Studio             ║
+║  db:reset                         ⚠️ Reset database              ║
+║  db:backup                        Backup database + uploads      ║
+║  db:backup:list                   List available backups         ║
+║  db:restore [file]                Restore database               ║
+║                                                                  ║
+║  📁 UPLOADS COMMANDS                                             ║
+║  ─────────────────────────────────────────                       ║
+║  uploads:backup                   Backup uploads folder          ║
+║  uploads:restore [file]           Restore uploads                ║
+║                                                                  ║
+║  ⏰ BACKUP SCHEDULE                                              ║
+║  ─────────────────────────────────────────                       ║
+║  backup:schedule                  Install daily cron (2:00 AM)   ║
+║  backup:unschedule                Remove daily cron              ║
+║  backup:verify                    Verify latest backup restores  ║
+║                                                                  ║
+║  📱 SMS OPS                                                       ║
+║  ──────────────────────────────────                             ║
+║  sms:catchup [adId...]           Re-queue due pre-expiry SMS    ║
+║                                  (bypasses cron time-gate)      ║
+║                                                                  ║
+║  🔒 SSL COMMANDS                                                 ║
+║  ─────────────────────────────────────────                       ║
+║  ssl:generate [domain] [email]    Generate SSL (uses .env)       ║
+║  ssl:generate:all                 Generate SSL for all domains   ║
+║  ssl:renew                        Renew certificates             ║
+║  ssl:test <domain>                Test SSL configuration         ║
+║                                                                  ║
+║  🔐 ENV                                              ║
+║  ─────────────────────────────────────────                       ║
+║  env:sync                         Sync app .env + .env.local     ║
+║  env:sync --production            Sync app .env only (prod)      ║
+║  env:check                        Validate root .env for Docker  ║
+║  env:encrypt [password] [file]   Encrypt .env files             ║
+║  env:decrypt [password] [file]   Decrypt .env files             ║
+║                                                                  ║
+║  🚀 DEPLOY COMMANDS                                              ║
+║  ─────────────────────────────────────────                       ║
+║  deploy                           Full deploy (build+recreate)   ║
+║  deploy:api|admin|mobile          Deploy single app              ║
+║  deploy --local                   Use .env.local + local sync    ║
+║  deploy -l                        Shorthand for --local          ║
+║                                                                  ║
+║  ⚙️  SETUP COMMANDS                                              ║
+║  ─────────────────────────────────────────                       ║
+║  setup                            Initial setup                  ║
+║  clean                            Clean everything               ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+
+EXAMPLES:
+  ./pinn setup                      # First time setup
+  ./pinn env:sync                   # Refresh derived app env files
+  ./pinn env:check                  # Validate Docker hosts in root .env
+  ./pinn build all && ./pinn up     # Build and start
+  ./pinn deploy                     # Deploy all changes
+  ./pinn deploy:api                 # Deploy only API
+  ./pinn doctor                     # Diagnose unhealthy services
+  ./pinn heal api                   # Fix stuck API without data loss
+  ./pinn logs api                   # Watch API logs
+  ./pinn db:migrate && db:seed      # Setup database
+  ./pinn env:encrypt mypass         # Encrypt .env files
+  ./pinn env:decrypt mypass         # Decrypt .env files
+EOF
+}
+
+# ==================== MAIN ====================
+
+main() {
+    check_docker
+    
+    # Parse flags (before or after command)
+    for arg in "$@"; do
+        if [ "$arg" = "--local" ] || [ "$arg" = "-l" ]; then
+            LOCAL_MODE=true
+            log_info "Local mode enabled - using .env.development"
+            break
+        fi
+    done
+    
+    # Remove flags from args
+    args=()
+    for arg in "$@"; do
+        if [ "$arg" != "--local" ] && [ "$arg" != "-l" ]; then
+            args+=("$arg")
+        fi
+    done
+    set -- "${args[@]}"
+    
+    case $1 in
+        # Build
+        build|b) cmd_build "$2" ;;
+        build:watch|bw) cmd_build_watch "$2" ;;
+        
+        # Docker
+        up|start) cmd_up ;;
+        down|stop) cmd_down ;;
+        restart|r) cmd_restart "$2" ;;
+        recreate|force-recreate) cmd_recreate "$2" ;;
+        heal|fix) cmd_heal "$2" ;;
+        doctor|diag) cmd_doctor ;;
+        logs|l) cmd_logs "$2" ;;
+        status|ps|s) cmd_status ;;
+        shell|sh|exec) cmd_shell "$2" ;;
+
+        # Watchdog
+        watchdog:install|wd:install) cmd_watchdog_install ;;
+        watchdog:uninstall|wd:uninstall) cmd_watchdog_uninstall ;;
+        watchdog:run|wd:run) cmd_watchdog_run ;;
+        watchdog:status|wd:status) cmd_watchdog_status ;;
+        watchdog:logs|wd:logs) cmd_watchdog_logs ;;
+        
+        # Database
+        db:migrate|migrate) cmd_db_migrate ;;
+        db:migrate:deploy) cmd_db_migrate_deploy ;;
+        db:generate|generate) cmd_db_generate ;;
+        db:seed|seed) cmd_db_seed ;;
+        db:studio|studio) cmd_db_studio ;;
+        db:reset|reset) cmd_db_reset ;;
+        db:backup|backup) cmd_db_backup ;;
+        db:backup:list|backup:list) cmd_db_backup_list ;;
+        db:restore|restore) cmd_db_restore "$2" ;;
+        
+        # Uploads
+        uploads:backup) cmd_uploads_backup ;;
+        uploads:restore) cmd_uploads_restore "$2" ;;
+        
+        # Backup schedule
+        backup:schedule) cmd_backup_schedule ;;
+        backup:unschedule) cmd_backup_unschedule ;;
+        backup:verify) cmd_backup_verify ;;
+
+        # SMS ops
+        sms:catchup) cmd_sms_catchup "${@:2}" ;;
+        
+        # SSL
+        ssl:generate) cmd_ssl_generate "$2" "$3" ;;
+        ssl:generate:all) cmd_ssl_generate_all ;;
+        ssl:renew) cmd_ssl_renew ;;
+        ssl:test) cmd_ssl_test "$2" ;;
+
+        # Env
+        env:sync) cmd_env_sync "${@:2}" ;;
+        env:check) cmd_env_check ;;
+        env:encrypt) cmd_env_encrypt "$2" "$3" ;;
+        env:decrypt) cmd_env_decrypt "$2" "$3" ;;
+
+        # Deploy
+        deploy|d) cmd_deploy ;;
+        deploy:api) cmd_deploy_app "api" ;;
+        deploy:admin) cmd_deploy_app "admin" ;;
+        deploy:mobile) cmd_deploy_app "mobile" ;;
+        
+        # Setup
+        setup|init) cmd_setup ;;
+        clean) cmd_clean ;;
+        
+        # Help
+        help|--help|-h|"") cmd_help ;;
+        
+        *) 
+            log_error "Unknown command: $1"
+            cmd_help
+            exit 1
+            ;;
+    esac
+}
+
+main "$@"

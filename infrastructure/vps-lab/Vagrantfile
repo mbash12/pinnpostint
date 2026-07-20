@@ -1,0 +1,27 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+#
+# Small-VPS simulation for PinNPost infra recovery tests.
+# 2GB RAM / 2 CPU — mirrors the production constraint.
+#
+# Usage:
+#   cd infrastructure/vps-lab
+#   vagrant up
+#   vagrant ssh -c 'sudo /opt/pinnpostint/infrastructure/vps-lab/test-recovery.sh'
+#   vagrant destroy -f
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/jammy64"
+  config.vm.hostname = "pinn-vps-lab"
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.name = "pinn-vps-lab"
+    vb.memory = 2048
+    vb.cpus = 2
+  end
+
+  # Repo root → /opt/pinnpostint (read-write so lab .env / logs work)
+  config.vm.synced_folder "../..", "/opt/pinnpostint"
+
+  config.vm.provision "shell", path: "provision.sh", privileged: true
+end

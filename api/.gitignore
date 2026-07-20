@@ -1,0 +1,12 @@
+node_modules
+
+/src/generated/prisma
+coverage
+dist
+
+# Uploaded files
+uploads/
+
+# Pincode data files
+prisma/all-india-pincode-json-array.json
+prisma/major-states-locations.json

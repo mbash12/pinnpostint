@@ -1,0 +1,68 @@
+{
+  "redis": {
+    "host": "${REDIS_HOST}",
+    "port": "${REDIS_PORT}",
+    "password": "${REDIS_PASSWORD}",
+    "db": "${REDIS_DB}"
+  },
+  "jobs": {
+    "ad-expiration-reminder": {
+      "concurrency": 5,
+      "attempts": 3,
+      "backoff": "exponential",
+      "description": "Send reminder notifications to users about ads expiring in 3 days"
+    },
+    "ad-expiration-cleanup": {
+      "concurrency": 10,
+      "attempts": 3,
+      "backoff": "exponential",
+      "description": "Mark expired ads as EXPIRED and deactivate them"
+    },
+    "payment-webhook-processing": {
+      "concurrency": 3,
+      "attempts": 5,
+      "backoff": "exponential",
+      "description": "Process payment webhooks from Razorpay"
+    },
+    "notification-delivery": {
+      "concurrency": 10,
+      "attempts": 3,
+      "backoff": "exponential",
+      "description": "Deliver SMS, email, and push notifications to users"
+    },
+    "data-cleanup": {
+      "concurrency": 2,
+      "attempts": 2,
+      "backoff": "fixed",
+      "description": "Clean up expired sessions, old files, and temporary data"
+    }
+  },
+  "schedules": {
+    "daily-cleanup": {
+      "cron": "0 2 * * *",
+      "jobType": "data-cleanup",
+      "data": { "type": "daily" },
+      "description": "Daily cleanup at 2 AM - removes expired sessions and temporary files"
+    },
+    "weekly-cleanup": {
+      "cron": "0 3 * * 0",
+      "jobType": "data-cleanup",
+      "data": { "type": "weekly" },
+      "description": "Weekly cleanup on Sunday at 3 AM - removes old files and logs"
+    },
+    "ad-expiration-check": {
+      "cron": "*/10 2-4,8-9 * * *",
+      "jobType": "ad-expiration-reminder",
+      "description": "8 AM IST (normal) + 2 PM IST (debug) — pre-expiry reminders"
+    }
+  },
+  "monitoring": {
+    "healthCheckInterval": 30000,
+    "metricsRetentionPeriod": 86400000,
+    "alertThresholds": {
+      "failureRate": 10,
+      "queueBacklog": 100,
+      "workerResponseTime": 5000
+    }
+  }
+}

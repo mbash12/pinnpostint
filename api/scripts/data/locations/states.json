@@ -1,0 +1,188 @@
+[
+  {
+    "name": "ANDHRA PRADESH",
+    "code": "AN",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "ARUNACHAL PRADESH",
+    "code": "AR",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "ASSAM",
+    "code": "AS",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "BIHAR",
+    "code": "BI",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "CHATTISGARH",
+    "code": "CH",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "DAMAN & DIU",
+    "code": "DA",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "DELHI",
+    "code": "DE",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "GOA",
+    "code": "GO",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "GUJARAT",
+    "code": "GU",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "HARYANA",
+    "code": "HA",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "HIMACHAL PRADESH",
+    "code": "HI",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "JAMMU & KASHMIR",
+    "code": "JA",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "JHARKHAND",
+    "code": "JH",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "KARNATAKA",
+    "code": "KA",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "KERALA",
+    "code": "KE",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "LAKSHADWEEP",
+    "code": "LA",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "MADHYA PRADESH",
+    "code": "MA",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "MEGHALAYA",
+    "code": "ME",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "MIZORAM",
+    "code": "MI",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "NAGALAND",
+    "code": "NA",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "NULL",
+    "code": "NU",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "ODISHA",
+    "code": "OD",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "PONDICHERRY",
+    "code": "PO",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "PUNJAB",
+    "code": "PU",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "RAJASTHAN",
+    "code": "RA",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "SIKKIM",
+    "code": "SI",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "TAMIL NADU",
+    "code": "TA",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "TELANGANA",
+    "code": "TE",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "TRIPURA",
+    "code": "TR",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "UTTAR PRADESH",
+    "code": "UT",
+    "country": "India",
+    "isActive": true
+  },
+  {
+    "name": "WEST BENGAL",
+    "code": "WE",
+    "country": "India",
+    "isActive": true
+  }
+]

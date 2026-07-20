@@ -1,0 +1,29 @@
+# Edit only at repo root, then ./pinn env:sync
+# .env
+# .env.local
+
+# Per-app (GENERATED — only .env and .env.local, never .development/.production)
+api/.env
+api/.env.local
+admin/.env
+admin/.env.local
+mobile/.env
+mobile/.env.local
+
+# Legacy names — ignore if leftover
+api/.env.development
+api/.env.production
+admin/.env.development
+admin/.env.production
+mobile/.env.development
+mobile/.env.production
+
+text
+*.log
+.kimchi/
+.worktrees/
+**/.vagrant/
+infrastructure/vps-lab/.env
+infrastructure/vps-lab/tmp/
+infrastructure/vps-lab/.cache/
+*.encrypted.bak

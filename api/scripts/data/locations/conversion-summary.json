@@ -1,0 +1,11 @@
+{
+  "generated": "2026-02-07T13:14:16.395Z",
+  "source": "../all-india-pincode-json-array.json",
+  "sourceRecords": 53367279,
+  "stats": {
+    "states": 31,
+    "districts": 575,
+    "cities": 4688,
+    "postalCodes": 10000
+  }
+}

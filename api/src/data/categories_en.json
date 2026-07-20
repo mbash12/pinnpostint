@@ -1,0 +1,409 @@
+[
+  {
+    "name": "Free Items",
+    "image": "5168.png",
+    "subcategories": [
+      {
+        "id": "Phones & Gadgets (Free)",
+        "name": "Phones & Gadgets (Free)",
+        "image": "5169.png"
+      },
+      {
+        "id": "Hobbies & Sports (Free)",
+        "name": "Hobbies & Sports (Free)",
+        "image": "5170.png"
+      },
+      {
+        "id": "Household Items (Free)",
+        "name": "Household Items (Free)",
+        "image": "5171.png"
+      },
+      {
+        "id": "Personal Needs (Free)",
+        "name": "Personal Needs (Free)",
+        "image": "5172.png"
+      },
+      {
+        "id": "Baby & Child Supplies (Free)",
+        "name": "Baby & Child Supplies (Free)",
+        "image": "5173.png"
+      },
+      {
+        "id": "Office & Industry (Free)",
+        "name": "Office & Industry (Free)",
+        "image": "5174.png"
+      }
+    ],
+    "id": "Free Items"
+  },
+  {
+    "name": "Cars",
+    "image": "86.png",
+    "subcategories": [
+      {
+        "id": "Used Cars",
+        "name": "Used Cars",
+        "image": "198.png"
+      },
+      {
+        "id": "Accessories",
+        "name": "Accessories",
+        "image": "4760.png"
+      },
+      {
+        "id": "Car Audio",
+        "name": "Car Audio",
+        "image": "4762.png"
+      },
+      {
+        "id": "Spare Parts",
+        "name": "Spare Parts",
+        "image": "4759.png"
+      },
+      {
+        "id": "Wheels and Tires",
+        "name": "Wheels and Tires",
+        "image": "4761.png"
+      },
+      {
+        "id": "Trucks & Commercial Vehicles",
+        "name": "Trucks & Commercial Vehicles",
+        "image": "4662.png"
+      }
+    ],
+    "id": "Cars"
+  },
+  {
+    "name": "Property",
+    "image": "88.png",
+    "subcategories": [
+      {
+        "id": "For Sale: Houses & Apartments",
+        "name": "For Sale: Houses & Apartments",
+        "image": "5158.png"
+      },
+      {
+        "id": "For Rent: Houses & Apartments",
+        "name": "For Rent: Houses & Apartments",
+        "image": "5160.png"
+      },
+      {
+        "id": "Land",
+        "name": "Land",
+        "image": "4827.png"
+      },
+      {
+        "id": "Boarding House",
+        "name": "Boarding House",
+        "image": "4833.png"
+      },
+      {
+        "id": "For Sale: Commercial Buildings",
+        "name": "For Sale: Commercial Buildings",
+        "image": "5154.png"
+      },
+      {
+        "id": "For Rent: Commercial Buildings",
+        "name": "For Rent: Commercial Buildings",
+        "image": "5156.png"
+      }
+    ],
+    "id": "Property"
+  },
+  {
+    "name": "Motorcycles",
+    "image": "87.png",
+    "subcategories": [
+      {
+        "id": "Used Motorcycles",
+        "name": "Used Motorcycles",
+        "image": "200.png"
+      },
+      {
+        "id": "Accessories",
+        "name": "Accessories",
+        "image": "4823.png"
+      },
+      {
+        "id": "Helmets",
+        "name": "Helmets",
+        "image": "4824.png"
+      },
+      {
+        "id": "Spare Parts",
+        "name": "Spare Parts",
+        "image": "4822.png"
+      }
+    ],
+    "id": "Motorcycles"
+  },
+  {
+    "name": "Services & Jobs",
+    "image": "97.png",
+    "subcategories": [
+      {
+        "id": "Job Vacancies",
+        "name": "Job Vacancies",
+        "image": "226.png"
+      },
+      {
+        "id": "Post Resume",
+        "name": "Post Resume",
+        "image": "227.png"
+      },
+      {
+        "id": "Services",
+        "name": "Services",
+        "image": "228.png"
+      }
+    ],
+    "id": "Services & Jobs"
+  },
+  {
+    "name": "Phones & Gadgets",
+    "image": "92.png",
+    "subcategories": [
+      {
+        "id": "Phones",
+        "name": "Phones",
+        "image": "208.png"
+      },
+      {
+        "id": "Tablets",
+        "name": "Tablets",
+        "image": "209.png"
+      },
+      {
+        "id": "Phone & Tablet Accessories",
+        "name": "Phone & Tablet Accessories",
+        "image": "215.png"
+      },
+      {
+        "id": "Photography & Videography",
+        "name": "Photography & Videography",
+        "image": "211.png"
+      },
+      {
+        "id": "Games & Consoles",
+        "name": "Games & Consoles",
+        "image": "212.png"
+      },
+      {
+        "id": "Computers & Laptops",
+        "name": "Computers & Laptops",
+        "image": "213.png"
+      },
+      {
+        "id": "TV, Audio & Accessories",
+        "name": "TV, Audio & Accessories",
+        "image": "210.png"
+      }
+    ],
+    "id": "Phones & Gadgets"
+  },
+  {
+    "name": "Hobbies & Sports",
+    "image": "94.png",
+    "subcategories": [
+      {
+        "id": "Musical Instruments & Accessories",
+        "name": "Musical Instruments & Accessories",
+        "image": "217.png"
+      },
+      {
+        "id": "Sports Equipment & Clothing",
+        "name": "Sports Equipment & Clothing",
+        "image": "218.png"
+      },
+      {
+        "id": "Bicycles, Scooters & Accessories",
+        "name": "Bicycles, Scooters & Accessories",
+        "image": "219.png"
+      },
+      {
+        "id": "Arts & Crafts",
+        "name": "Arts & Crafts",
+        "image": "222.png"
+      },
+      {
+        "id": "Printed & Digital Books",
+        "name": "Printed & Digital Books",
+        "image": "220.png"
+      },
+      {
+        "id": "Collectibles & Hobby Toys",
+        "name": "Collectibles & Hobby Toys",
+        "image": "221.png"
+      },
+      {
+        "id": "Music & Films",
+        "name": "Music & Films",
+        "image": "4975.png"
+      },
+      {
+        "id": "Pets & Pet Accessories",
+        "name": "Pets & Pet Accessories",
+        "image": "235.png"
+      }
+    ],
+    "id": "Hobbies & Sports"
+  },
+  {
+    "name": "Household Items",
+    "image": "89.png",
+    "subcategories": [
+      {
+        "id": "Food & Beverages",
+        "name": "Food & Beverages",
+        "image": "4845.png"
+      },
+      {
+        "id": "Furniture & Home Decor",
+        "name": "Furniture & Home Decor",
+        "image": "4835.png"
+      },
+      {
+        "id": "Garden & Outdoor Needs",
+        "name": "Garden & Outdoor Needs",
+        "image": "4842.png"
+      },
+      {
+        "id": "Construction Tools & Materials",
+        "name": "Construction Tools & Materials",
+        "image": "5163.png"
+      },
+      {
+        "id": "Home & Kitchen Supplies",
+        "name": "Home & Kitchen Supplies",
+        "image": "202.png"
+      },
+      {
+        "id": "Household Electronics",
+        "name": "Household Electronics",
+        "image": "5175.png"
+      },
+      {
+        "id": "Others",
+        "name": "Others",
+        "image": "4843.png"
+      }
+    ],
+    "id": "Household Items"
+  },
+  {
+    "name": "Personal Needs",
+    "image": "98.png",
+    "subcategories": [
+      {
+        "id": "Customs & Religion",
+        "name": "Customs & Religion",
+        "image": "5164.png"
+      },
+      {
+        "id": "Women's Fashion",
+        "name": "Women's Fashion",
+        "image": "230.png"
+      },
+      {
+        "id": "Men's Fashion",
+        "name": "Men's Fashion",
+        "image": "229.png"
+      },
+      {
+        "id": "Watches",
+        "name": "Watches",
+        "image": "231.png"
+      },
+      {
+        "id": "Jewelry",
+        "name": "Jewelry",
+        "image": "232.png"
+      },
+      {
+        "id": "Health, Care & Beauty",
+        "name": "Health, Care & Beauty",
+        "image": "234.png"
+      },
+      {
+        "id": "Tickets & Vouchers",
+        "name": "Tickets & Vouchers",
+        "image": "5165.png"
+      },
+      {
+        "id": "Others",
+        "name": "Others",
+        "image": "5124.png"
+      }
+    ],
+    "id": "Personal Needs"
+  },
+  {
+    "name": "Baby & Child Supplies",
+    "image": "96.png",
+    "subcategories": [
+      {
+        "id": "Baby & Child Fashion",
+        "name": "Baby & Child Fashion",
+        "image": "5049.png"
+      },
+      {
+        "id": "Mother & Baby Supplies",
+        "name": "Mother & Baby Supplies",
+        "image": "224.png"
+      },
+      {
+        "id": "Children's Books",
+        "name": "Children's Books",
+        "image": "5046.png"
+      },
+      {
+        "id": "Dolls & Children's Toys",
+        "name": "Dolls & Children's Toys",
+        "image": "5142.png"
+      },
+      {
+        "id": "Strollers, Bouncers & Carriers",
+        "name": "Strollers, Bouncers & Carriers",
+        "image": "5053.png"
+      },
+      {
+        "id": "Others",
+        "name": "Others",
+        "image": "5047.png"
+      }
+    ],
+    "id": "Baby & Child Supplies"
+  },
+  {
+    "name": "Office & Industry",
+    "image": "90.png",
+    "subcategories": [
+      {
+        "id": "Security & Safety Equipment",
+        "name": "Security & Safety Equipment",
+        "image": "5166.png"
+      },
+      {
+        "id": "Office Equipment & Stationery",
+        "name": "Office Equipment & Stationery",
+        "image": "203.png"
+      },
+      {
+        "id": "Business Supplies",
+        "name": "Business Supplies",
+        "image": "5090.png"
+      },
+      {
+        "id": "Machinery & Industrial Needs",
+        "name": "Machinery & Industrial Needs",
+        "image": "4846.png"
+      },
+      {
+        "id": "Others",
+        "name": "Others",
+        "image": "4853.png"
+      }
+    ],
+    "id": "Office & Industry"
+  }
+]

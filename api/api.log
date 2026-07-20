@@ -1,0 +1,132 @@
+
+> pinnpost@1.0.0 dev
+> nodemon --exec ts-node src/server.ts
+
+[33m[nodemon] 3.1.10[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: ts,json[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.2] injecting env (44) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+/home/walker/WORK/FREELANCE/PIN/pinnpostint/api/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/controllers/adController.ts(998,29): error TS2345: Argument of type '"FORBIDDEN"' is not assignable to parameter of type 'ErrorCode'.
+
+    at createTSError (/home/walker/WORK/FREELANCE/PIN/pinnpostint/api/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/home/walker/WORK/FREELANCE/PIN/pinnpostint/api/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/home/walker/WORK/FREELANCE/PIN/pinnpostint/api/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/home/walker/WORK/FREELANCE/PIN/pinnpostint/api/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/home/walker/WORK/FREELANCE/PIN/pinnpostint/api/node_modules/ts-node/src/index.ts:1617:30)
+    at node:internal/modules/cjs/loader:1892:10
+    at Object.require.extensions.<computed> [as .ts] (/home/walker/WORK/FREELANCE/PIN/pinnpostint/api/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1479:32)
+    at Module._load (node:internal/modules/cjs/loader:1298:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14) {
+  diagnosticCodes: [ 2345 ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.2] injecting env (44) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+/home/walker/WORK/FREELANCE/PIN/pinnpostint/api/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/controllers/adController.ts(999,29): error TS2345: Argument of type '"FORBIDDEN"' is not assignable to parameter of type 'ErrorCode'.
+
+    at createTSError (/home/walker/WORK/FREELANCE/PIN/pinnpostint/api/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/home/walker/WORK/FREELANCE/PIN/pinnpostint/api/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/home/walker/WORK/FREELANCE/PIN/pinnpostint/api/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/home/walker/WORK/FREELANCE/PIN/pinnpostint/api/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/home/walker/WORK/FREELANCE/PIN/pinnpostint/api/node_modules/ts-node/src/index.ts:1617:30)
+    at node:internal/modules/cjs/loader:1892:10
+    at Object.require.extensions.<computed> [as .ts] (/home/walker/WORK/FREELANCE/PIN/pinnpostint/api/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1479:32)
+    at Module._load (node:internal/modules/cjs/loader:1298:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14) {
+  diagnosticCodes: [ 2345 ]
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/server.ts`[39m
+[dotenv@17.2.2] injecting env (44) from .env -- tip: 📡 version env with Radar: https://dotenvx.com/radar
+🔄 Initializing background job system...
+Redis Client Connected
+Redis Client Ready
+Redis connection established for job queue
+Job queue manager initialized
+Initializing background job monitoring...
+Starting health monitor...
+Health monitor started
+Background job monitoring initialized successfully
+Monitoring integration initialized
+Initializing scheduled jobs...
+Scheduled job 'daily-cleanup' added with cron: 0 2 * * *
+Scheduled job 'weekly-cleanup' added with cron: 0 3 * * 0
+Scheduled job 'ad-expiration-check' added with cron: 0 9 * * *
+Initialized 3 scheduled jobs
+Cron scheduler initialized
+✅ Background job system initialized successfully
+🚀 Server running on port 3001
+📚 API Documentation available at http://localhost:3001/api-docs
+🏥 Health check available at http://localhost:3001/health
+🌍 Environment: development
+📦 API Version: v1
+⚙️  Background job system initialized
+::1 - - [30/Dec/2025:03:40:43 +0000] "GET /health HTTP/1.1" 200 128 "-" "curl/8.17.0"
+prisma:query SELECT "public"."users"."id", "public"."users"."role"::text, "public"."users"."email", "public"."users"."phone", "public"."users"."isActive", "public"."users"."isVerified" FROM "public"."users" WHERE ("public"."users"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query SELECT "public"."wishlists"."id", "public"."wishlists"."userId", "public"."wishlists"."adId", "public"."wishlists"."createdAt" FROM "public"."wishlists" WHERE "public"."wishlists"."userId" = $1 ORDER BY "public"."wishlists"."createdAt" DESC LIMIT $2 OFFSET $3
+prisma:query SELECT COUNT(*) AS "_count$_all" FROM (SELECT "public"."wishlists"."id" FROM "public"."wishlists" WHERE "public"."wishlists"."userId" = $1 OFFSET $2) AS "sub"
+::1 - - [30/Dec/2025:03:41:05 +0000] "GET /api/v1/users/me/wishlist HTTP/1.1" 304 - "http://localhost:8081/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+prisma:query SELECT "public"."users"."id", "public"."users"."role"::text, "public"."users"."email", "public"."users"."phone", "public"."users"."isActive", "public"."users"."isVerified" FROM "public"."users" WHERE ("public"."users"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query SELECT "public"."users"."id", "public"."users"."role"::text, "public"."users"."email", "public"."users"."phone", "public"."users"."isActive", "public"."users"."isVerified" FROM "public"."users" WHERE ("public"."users"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query SELECT "public"."ads"."id", "public"."ads"."title", "public"."ads"."description", "public"."ads"."price", "public"."ads"."adType"::text, "public"."ads"."status"::text, "public"."ads"."images", "public"."ads"."locationId", "public"."ads"."categoryId", "public"."ads"."subcategoryId", "public"."ads"."userId", "public"."ads"."isFeatured", "public"."ads"."createdAt", "public"."ads"."updatedAt", "public"."ads"."expiresAt", "public"."ads"."rejectionReason", "public"."ads"."isFlagged", "public"."ads"."flagReason", "public"."ads"."slug" FROM "public"."ads" WHERE "public"."ads"."userId" = $1 ORDER BY "public"."ads"."createdAt" DESC LIMIT $2 OFFSET $3
+prisma:query SELECT COUNT(*) AS "_count$_all" FROM (SELECT "public"."ads"."id" FROM "public"."ads" WHERE "public"."ads"."userId" = $1 OFFSET $2) AS "sub"
+::1 - - [30/Dec/2025:03:41:06 +0000] "GET /api/v1/users/me/ads?page=1&limit=50 HTTP/1.1" 304 - "http://localhost:8081/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+prisma:query SELECT "public"."users"."id", "public"."users"."role"::text, "public"."users"."email", "public"."users"."phone", "public"."users"."isActive", "public"."users"."isVerified" FROM "public"."users" WHERE ("public"."users"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query SELECT COUNT(*) AS "_count$_all" FROM (SELECT "public"."wishlists"."id" FROM "public"."wishlists" WHERE "public"."wishlists"."userId" = $1 OFFSET $2) AS "sub"
+prisma:query SELECT "public"."wishlists"."id", "public"."wishlists"."userId", "public"."wishlists"."adId", "public"."wishlists"."createdAt" FROM "public"."wishlists" WHERE "public"."wishlists"."userId" = $1 ORDER BY "public"."wishlists"."createdAt" DESC LIMIT $2 OFFSET $3
+::1 - - [30/Dec/2025:03:41:06 +0000] "GET /api/v1/users/me/wishlist HTTP/1.1" 304 - "http://localhost:8081/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+prisma:query SELECT "public"."users"."id", "public"."users"."role"::text, "public"."users"."email", "public"."users"."phone", "public"."users"."isActive", "public"."users"."isVerified" FROM "public"."users" WHERE ("public"."users"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query SELECT "public"."users"."id", "public"."users"."role"::text, "public"."users"."email", "public"."users"."phone", "public"."users"."isActive", "public"."users"."isVerified" FROM "public"."users" WHERE ("public"."users"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query SELECT "public"."users"."id", "public"."users"."role"::text, "public"."users"."email", "public"."users"."phone", "public"."users"."isActive", "public"."users"."isVerified" FROM "public"."users" WHERE ("public"."users"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query SELECT "public"."users"."id", "public"."users"."role"::text, "public"."users"."email", "public"."users"."phone", "public"."users"."isActive", "public"."users"."isVerified" FROM "public"."users" WHERE ("public"."users"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query SELECT "public"."users"."id", "public"."users"."role"::text, "public"."users"."email", "public"."users"."phone", "public"."users"."isActive", "public"."users"."isVerified" FROM "public"."users" WHERE ("public"."users"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query SELECT "public"."users"."id", "public"."users"."role"::text, "public"."users"."email", "public"."users"."phone", "public"."users"."isActive", "public"."users"."isVerified" FROM "public"."users" WHERE ("public"."users"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query SELECT COUNT(*) AS "_count$_all" FROM (SELECT "public"."bookings"."id" FROM "public"."bookings" WHERE "public"."bookings"."userId" = $1 OFFSET $2) AS "sub"
+prisma:query SELECT COUNT(*) AS "_count$_all" FROM (SELECT "public"."bookings"."id" FROM "public"."bookings" LEFT JOIN "public"."ads" AS "j0" ON ("j0"."id") = ("public"."bookings"."adId") WHERE ("j0"."userId" = $1 AND ("j0"."id" IS NOT NULL)) OFFSET $2) AS "sub"
+prisma:query SELECT "public"."bookings"."id", "public"."bookings"."startDate", "public"."bookings"."endDate", "public"."bookings"."status"::text, "public"."bookings"."notes", "public"."bookings"."createdAt", "public"."bookings"."adId" FROM "public"."bookings" WHERE "public"."bookings"."userId" = $1 ORDER BY "public"."bookings"."createdAt" DESC LIMIT $2 OFFSET $3
+prisma:query SELECT "public"."ads"."id", "public"."ads"."title", "public"."ads"."price", "public"."ads"."adType"::text, "public"."ads"."userId" FROM "public"."ads" WHERE "public"."ads"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."bookings"."id", "public"."bookings"."userId", "public"."bookings"."startDate", "public"."bookings"."endDate", "public"."bookings"."status"::text, "public"."bookings"."notes", "public"."bookings"."createdAt", "public"."bookings"."adId" FROM "public"."bookings" LEFT JOIN "public"."ads" AS "j0" ON ("j0"."id") = ("public"."bookings"."adId") WHERE ("j0"."userId" = $1 AND ("j0"."id" IS NOT NULL)) ORDER BY "public"."bookings"."createdAt" DESC LIMIT $2 OFFSET $3
+::1 - - [30/Dec/2025:03:41:07 +0000] "GET /api/v1/users/me/bookings/incoming HTTP/1.1" 304 - "http://localhost:8081/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+prisma:query SELECT "public"."users"."id", "public"."users"."firstName", "public"."users"."lastName" FROM "public"."users" WHERE "public"."users"."id" IN ($1) OFFSET $2
+::1 - - [30/Dec/2025:03:41:07 +0000] "GET /api/v1/users/me/bookings/outgoing HTTP/1.1" 304 - "http://localhost:8081/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+prisma:query SELECT "public"."users"."id", "public"."users"."role"::text, "public"."users"."email", "public"."users"."phone", "public"."users"."isActive", "public"."users"."isVerified" FROM "public"."users" WHERE ("public"."users"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query SELECT COUNT(*) AS "_count$_all" FROM (SELECT "public"."wishlists"."id" FROM "public"."wishlists" WHERE "public"."wishlists"."userId" = $1 OFFSET $2) AS "sub"
+prisma:query SELECT "public"."wishlists"."id", "public"."wishlists"."userId", "public"."wishlists"."adId", "public"."wishlists"."createdAt" FROM "public"."wishlists" WHERE "public"."wishlists"."userId" = $1 ORDER BY "public"."wishlists"."createdAt" DESC LIMIT $2 OFFSET $3
+::1 - - [30/Dec/2025:03:41:14 +0000] "GET /api/v1/users/me/wishlist HTTP/1.1" 304 - "http://localhost:8081/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+prisma:query SELECT "public"."users"."id", "public"."users"."role"::text, "public"."users"."email", "public"."users"."phone", "public"."users"."isActive", "public"."users"."isVerified" FROM "public"."users" WHERE ("public"."users"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query SELECT "public"."users"."id", "public"."users"."role"::text, "public"."users"."email", "public"."users"."phone", "public"."users"."isActive", "public"."users"."isVerified" FROM "public"."users" WHERE ("public"."users"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query SELECT COUNT(*) AS "_count$_all" FROM (SELECT "public"."ads"."id" FROM "public"."ads" WHERE "public"."ads"."userId" = $1 OFFSET $2) AS "sub"
+prisma:query SELECT "public"."ads"."id", "public"."ads"."title", "public"."ads"."description", "public"."ads"."price", "public"."ads"."adType"::text, "public"."ads"."status"::text, "public"."ads"."images", "public"."ads"."locationId", "public"."ads"."categoryId", "public"."ads"."subcategoryId", "public"."ads"."userId", "public"."ads"."isFeatured", "public"."ads"."createdAt", "public"."ads"."updatedAt", "public"."ads"."expiresAt", "public"."ads"."rejectionReason", "public"."ads"."isFlagged", "public"."ads"."flagReason", "public"."ads"."slug" FROM "public"."ads" WHERE "public"."ads"."userId" = $1 ORDER BY "public"."ads"."createdAt" DESC LIMIT $2 OFFSET $3
+::1 - - [30/Dec/2025:03:41:14 +0000] "GET /api/v1/users/me/ads?page=1&limit=50 HTTP/1.1" 304 - "http://localhost:8081/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+prisma:query SELECT "public"."users"."id", "public"."users"."role"::text, "public"."users"."email", "public"."users"."phone", "public"."users"."isActive", "public"."users"."isVerified" FROM "public"."users" WHERE ("public"."users"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query SELECT "public"."wishlists"."id", "public"."wishlists"."userId", "public"."wishlists"."adId", "public"."wishlists"."createdAt" FROM "public"."wishlists" WHERE "public"."wishlists"."userId" = $1 ORDER BY "public"."wishlists"."createdAt" DESC LIMIT $2 OFFSET $3
+prisma:query SELECT COUNT(*) AS "_count$_all" FROM (SELECT "public"."wishlists"."id" FROM "public"."wishlists" WHERE "public"."wishlists"."userId" = $1 OFFSET $2) AS "sub"
+::1 - - [30/Dec/2025:03:41:15 +0000] "GET /api/v1/users/me/wishlist HTTP/1.1" 304 - "http://localhost:8081/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+prisma:query SELECT "public"."users"."id", "public"."users"."role"::text, "public"."users"."email", "public"."users"."phone", "public"."users"."isActive", "public"."users"."isVerified" FROM "public"."users" WHERE ("public"."users"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query SELECT "public"."users"."id", "public"."users"."role"::text, "public"."users"."email", "public"."users"."phone", "public"."users"."isActive", "public"."users"."isVerified" FROM "public"."users" WHERE ("public"."users"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query SELECT "public"."users"."id", "public"."users"."role"::text, "public"."users"."email", "public"."users"."phone", "public"."users"."isActive", "public"."users"."isVerified" FROM "public"."users" WHERE ("public"."users"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query SELECT "public"."users"."id", "public"."users"."role"::text, "public"."users"."email", "public"."users"."phone", "public"."users"."isActive", "public"."users"."isVerified" FROM "public"."users" WHERE ("public"."users"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query SELECT "public"."users"."id", "public"."users"."role"::text, "public"."users"."email", "public"."users"."phone", "public"."users"."isActive", "public"."users"."isVerified" FROM "public"."users" WHERE ("public"."users"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query SELECT "public"."users"."id", "public"."users"."role"::text, "public"."users"."email", "public"."users"."phone", "public"."users"."isActive", "public"."users"."isVerified" FROM "public"."users" WHERE ("public"."users"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query SELECT COUNT(*) AS "_count$_all" FROM (SELECT "public"."bookings"."id" FROM "public"."bookings" WHERE "public"."bookings"."userId" = $1 OFFSET $2) AS "sub"
+prisma:query SELECT "public"."bookings"."id", "public"."bookings"."startDate", "public"."bookings"."endDate", "public"."bookings"."status"::text, "public"."bookings"."notes", "public"."bookings"."createdAt", "public"."bookings"."adId" FROM "public"."bookings" WHERE "public"."bookings"."userId" = $1 ORDER BY "public"."bookings"."createdAt" DESC LIMIT $2 OFFSET $3
+prisma:query SELECT "public"."ads"."id", "public"."ads"."title", "public"."ads"."price", "public"."ads"."adType"::text, "public"."ads"."userId" FROM "public"."ads" WHERE "public"."ads"."id" IN ($1) OFFSET $2
+prisma:query SELECT COUNT(*) AS "_count$_all" FROM (SELECT "public"."bookings"."id" FROM "public"."bookings" LEFT JOIN "public"."ads" AS "j0" ON ("j0"."id") = ("public"."bookings"."adId") WHERE ("j0"."userId" = $1 AND ("j0"."id" IS NOT NULL)) OFFSET $2) AS "sub"
+prisma:query SELECT "public"."users"."id", "public"."users"."firstName", "public"."users"."lastName" FROM "public"."users" WHERE "public"."users"."id" IN ($1) OFFSET $2
+::1 - - [30/Dec/2025:03:41:15 +0000] "GET /api/v1/users/me/bookings/outgoing HTTP/1.1" 304 - "http://localhost:8081/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+prisma:query SELECT "public"."bookings"."id", "public"."bookings"."userId", "public"."bookings"."startDate", "public"."bookings"."endDate", "public"."bookings"."status"::text, "public"."bookings"."notes", "public"."bookings"."createdAt", "public"."bookings"."adId" FROM "public"."bookings" LEFT JOIN "public"."ads" AS "j0" ON ("j0"."id") = ("public"."bookings"."adId") WHERE ("j0"."userId" = $1 AND ("j0"."id" IS NOT NULL)) ORDER BY "public"."bookings"."createdAt" DESC LIMIT $2 OFFSET $3
+::1 - - [30/Dec/2025:03:41:15 +0000] "GET /api/v1/users/me/bookings/incoming HTTP/1.1" 304 - "http://localhost:8081/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
