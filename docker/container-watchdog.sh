@@ -79,11 +79,19 @@ log() {
 have() { command -v "$1" &>/dev/null; }
 
 dc() {
+  # Compose interpolation does not automatically discover the repository-level
+  # .env when this script is launched by systemd. Always pass it explicitly;
+  # otherwise recovery fails closed on required values such as REDIS_PASSWORD.
+  local env_file="${REPO_ROOT}/.env"
+  if [[ ! -f "${env_file}" ]]; then
+    log "ERROR root env file not found: ${env_file}"
+    return 1
+  fi
   # Prefer `docker compose` (v2); fall back to `docker-compose` (v1).
   if docker compose version &>/dev/null; then
-    docker compose -f "${COMPOSE_FILE}" "$@"
+    docker compose --env-file "${env_file}" -f "${COMPOSE_FILE}" "$@"
   else
-    docker-compose -f "${COMPOSE_FILE}" "$@"
+    docker-compose --env-file "${env_file}" -f "${COMPOSE_FILE}" "$@"
   fi
 }
 
