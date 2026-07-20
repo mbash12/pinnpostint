@@ -97,6 +97,11 @@ services:
     image: node:20-alpine
     container_name: pinn-api
     restart: unless-stopped
+    init: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
     deploy:
       resources:
         limits:
@@ -127,8 +132,8 @@ services:
       - ../api/public:/app/public:ro
       - ../api/uploads:/app/uploads
       - ../logs/api:/app/logs
-    ports:
-      - "${API_PORT:-3001}:${API_PORT:-3001}"
+    expose:
+      - "${API_PORT:-3001}"
     command: ["node", "--max-old-space-size=400", "dist/src/server.js"]
     depends_on:
       db:
@@ -156,6 +161,15 @@ services:
     image: node:20-alpine
     container_name: pinn-admin
     restart: unless-stopped
+    init: true
+    user: "node"
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=32m,mode=1777
     deploy:
       resources:
         limits:
@@ -165,8 +179,6 @@ services:
           cpus: '0.15'
           memory: 128M
     working_dir: /app
-    env_file:
-      - ../.env
     environment:
       - PORT=${ADMIN_PORT:-3000}
       - HOSTNAME=0.0.0.0
@@ -175,20 +187,21 @@ services:
       - NODE_ENV=production
     volumes:
       # Mount optimized standalone build
-      - ../admin/.next/standalone:/app
+      - ../admin/.next/standalone:/app:ro
       - ../admin/.next/static:/app/.next/static:ro
-    ports:
-      - "${ADMIN_PORT:-3000}:${ADMIN_PORT:-3000}"
+    expose:
+      - "${ADMIN_PORT:-3000}"
     # Use standalone server for better performance and lower memory footprint
     command: ["node", "--max-old-space-size=300", "server.js"]
     depends_on:
-      - api
+      api:
+        condition: service_healthy
     healthcheck:
       test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1:${ADMIN_PORT:-3000}/api/health"]
-      interval: 60s
+      interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 60s
+      start_period: 30s
     networks:
       - pinn-network
     logging:
@@ -202,14 +215,25 @@ services:
     image: nginx:alpine
     container_name: pinn-mobile
     restart: unless-stopped
-    env_file:
-      - ../.env
+    init: true
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - SETGID
+      - SETUID
+    tmpfs:
+      - /var/cache/nginx:rw,nosuid,nodev,size=16m
+      - /var/run:rw,nosuid,nodev,size=1m
     volumes:
       - ../mobile/dist:/usr/share/nginx/html:ro
       - ./nginx-mobile.conf:/etc/nginx/conf.d/default.conf:ro
       - ./certbot/conf:/etc/nginx/ssl:ro
-    ports:
-      - "${MOBILE_PORT:-8080}:80"
+    expose:
+      - "80"
     depends_on:
       - api
     networks:
