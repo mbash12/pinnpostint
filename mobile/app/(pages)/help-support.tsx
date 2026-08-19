@@ -1,4 +1,4 @@
-import { StyleSheet, View, TouchableOpacity, TextInput, ActivityIndicator, ScrollView } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, TextInput, ActivityIndicator, ScrollView, useWindowDimensions } from 'react-native';
 import { useState, useEffect } from 'react';
 import { MaterialIcons } from '@expo/vector-icons';
 import { RenderHTML } from 'react-native-render-html';
@@ -15,6 +15,7 @@ import { HEADER_HEIGHT } from '@/constants/layout';
 
 export default function HelpSupportScreen() {
   const { isDesktop } = useResponsive();
+  const { width } = useWindowDimensions();
   const [expandedFAQ, setExpandedFAQ] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | 'all'>('all');
@@ -45,27 +46,25 @@ export default function HelpSupportScreen() {
   };
 
   useEffect(() => {
-    if (faqItems.length > 0) {
-      let filtered = faqItems;
+    let filtered = [...faqItems];
 
-      // Apply category filter
-      if (selectedCategory !== 'all') {
-        filtered = filtered.filter(item =>
-          item.category && item.category.id === selectedCategory
-        );
-      }
-
-      // Apply search filter
-      if (searchQuery) {
-        filtered = filtered.filter(item =>
-          item.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          item.answer.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          (item.category && item.category.name.toLowerCase().includes(searchQuery.toLowerCase()))
-        );
-      }
-
-      setFilteredFAQ(filtered);
+    // Apply category filter
+    if (selectedCategory !== 'all') {
+      filtered = filtered.filter(item =>
+        item.category && item.category.id === selectedCategory
+      );
     }
+
+    // Apply search filter
+    if (searchQuery) {
+      filtered = filtered.filter(item =>
+        item.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.answer.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (item.category && item.category.name.toLowerCase().includes(searchQuery.toLowerCase()))
+      );
+    }
+
+    setFilteredFAQ(filtered);
   }, [searchQuery, selectedCategory, faqItems]);
 
   const loadFAQs = async () => {
